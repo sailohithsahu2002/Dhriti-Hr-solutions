@@ -216,24 +216,32 @@ header{
 
 /* ===== SERVICES HERO ===== */
 .services-hero {
-  background: linear-gradient(135deg, rgba(15,76,117,0.88) 0%, rgba(0,98,153,0.88) 100%),
-              url("https://images.unsplash.com/photo-1551434678-e076c223a692?q=80&w=2000")
+  background: linear-gradient(135deg, rgba(15,76,117,0.5) 0%, rgba(0,98,153,0.5) 100%),
+              url("./images/aboutbackgroundimage.jpg")
               center center/cover no-repeat;
   background-attachment: fixed;
   color: #fff;
   text-align: center;
-  padding: 120px 20px;
+  padding: 100px 20px;
   position: relative;
+  min-height: 60vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  opacity: 0;
+  animation: heroFadeIn 1.5s ease forwards;
 }
 
 .services-hero h1 {
   font-size: 48px;
   opacity: 0;
   transform: translateY(40px);
-  animation: fadeUpHero 1s ease forwards;
+  animation: fadeUpHero 1.2s ease forwards 0.3s;
   text-shadow: 2px 2px 12px rgba(0,0,0,0.4);
   font-weight: 700;
   letter-spacing: 0.5px;
+  margin: 0;
 }
 
 .services-hero p {
@@ -241,14 +249,23 @@ header{
   margin-top: 15px;
   opacity: 0;
   transform: translateY(30px);
-  animation: fadeUpHero 1s ease forwards;
-  animation-delay: 0.4s;
+  animation: fadeUpHero 1.2s ease forwards 0.6s;
   text-shadow: 1px 1px 8px rgba(0,0,0,0.3);
   font-weight: 500;
   letter-spacing: 0.3px;
+  margin-bottom: 0;
+}
+
+@keyframes heroFadeIn {
+  from{opacity:0; transform: scale(0.98);}
+  to{opacity:1; transform: scale(1);}
 }
 
 @keyframes fadeUpHero {
+  from {
+    opacity: 0;
+    transform: translateY(40px);
+  }
   to {
     opacity: 1;
     transform: translateY(0);
@@ -727,7 +744,7 @@ header{
 /* ===== CTA SECTION ===== */
 .cta{
   background:
-    linear-gradient(135deg, rgba(15,76,117,0.88) 0%, rgba(0,98,153,0.88) 100%),
+    linear-gradient(135deg,)
     url("./images/hr-service\ 123.jpg")
     center center/cover no-repeat;
   background-attachment: fixed;
@@ -842,30 +859,34 @@ footer{
   }
   
   .services-hero {
-    min-height: 300px;
-    padding: 80px 20px;
+    min-height: 50vh;
+    padding: 90px 20px;
     display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: center;
+    background-attachment: scroll;
+    background-position: center center;
   }
   
   .services-hero h1{
     font-size: 28px;
     font-weight: 700;
-    max-width: 90%;
+    max-width: 95%;
     margin: 0 auto;
     text-align: center;
     line-height: 1.2;
+    animation: fadeUpHero 1s ease forwards 0.3s;
   }
   
   .services-hero p{
     font-size: 16px;
     font-weight: 500;
-    max-width: 90%;
-    margin: 10px auto 0 auto;
+    max-width: 95%;
+    margin: 12px auto 0 auto;
     text-align: center;
     line-height: 1.5;
+    animation: fadeUpHero 1s ease forwards 0.5s;
   }
   
   .section {
