@@ -1,0 +1,1326 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Our Services | Dhriti HR Solutions</title>
+
+<style>
+/* ===== RESET ===== */
+*{
+  margin:0;
+  padding:0;
+  box-sizing:border-box;
+  font-family:"Segoe UI", Arial, sans-serif;
+}
+
+body{
+  background:#ffffff;
+  color:#444;
+  line-height:1.7;
+  overflow-x: hidden;
+}
+
+/* ===== HEADER ===== */
+header{
+  background:#1e1e1e;
+  position:sticky;
+  top:0;
+  z-index:1000;
+}
+
+.navbar{
+  max-width:1200px;
+  margin:auto;
+  padding:12px 20px;
+  display:flex;
+  justify-content:space-between;
+  align-items:center;
+}
+.logo a{
+  display:flex;
+  flex-direction:column;
+  gap:2px;
+  color:#ffffff;
+  text-decoration:none;
+}
+
+.logo-header{
+  display:flex;
+  flex-direction:row;
+  align-items:center;
+  gap:12px;
+}
+
+.logo-header img{
+  height:55px;
+  width:auto;
+}
+.logo-text{
+  display:flex;
+  flex-direction:column;
+  gap:2px;
+}
+
+.logo-text > span:first-child{
+  font-size:18px;
+  font-weight:600;
+  color:#fff;
+}
+.logo-header > span{
+  font-size:18px;
+  font-weight:400;
+}
+
+.logo img{
+  height:55px;
+  width:auto;
+}
+
+.logo a > span:nth-child(2){
+  font-size:14px;
+  font-weight:600;
+}
+
+.logo .tagline{
+  font-size:13px;
+  font-weight:400;
+  color:#ffffff;
+  line-height:1.1;
+}
+
+.tagline .initial{
+  font-weight:700;
+}
+
+.tagline .initial.T{
+  color:#ffffff;
+}
+
+.tagline .initial.E{
+  color:#0d6efd;
+}
+
+.tagline .initial.A{
+  color:orange;
+}
+
+.tagline .initial.M{
+  color:#28a745;
+}
+
+.nav-links{
+  list-style:none;
+  display:flex;
+  gap:28px;
+}
+
+.nav-links a{
+  text-decoration:none;
+  color:#ffffff;
+  font-size:17px;
+  transition:.3s;
+}
+
+.nav-links a:hover{
+  color:#00bcd4;
+}
+
+.menu-toggle{
+  display:none;
+  font-size:28px;
+  color:#ffffff;
+  cursor:pointer;
+  background:transparent;
+  border:none;
+  padding:8px 12px;
+  z-index:1500;
+  transition:color 0.3s ease;
+}
+
+.mobile-menu{
+  position:fixed;
+  top:0;
+  right:-100%;
+  width:70vw;
+  max-width:280px;
+  height:100vh;
+  background:#1e1e1e;
+  padding-top:80px;
+  padding-left:20px;
+  padding-right:20px;
+  padding-bottom:20px;
+  transition:right .4s ease;
+  z-index:2000;
+  box-shadow:-6px 0 20px rgba(0,0,0,0.3);
+  overflow-y:auto;
+}
+
+.mobile-menu.active{
+  right:0;
+}
+
+.mobile-menu ul{
+  list-style:none;
+  margin:0;
+  padding:0;
+}
+
+.mobile-menu li{
+  margin-bottom:24px;
+}
+
+.mobile-menu a{
+  text-decoration:none;
+  color:#ffffff;
+  font-size:18px;
+  display:block;
+  padding:8px 5px;
+  transition:color 0.3s ease;
+}
+
+.mobile-menu a:hover{
+  color:#00bcd4;
+}
+
+/* Dimmed backdrop when mobile menu is open */
+.menu-overlay{
+  position:fixed;
+  inset:0;
+  background:rgba(0,0,0,0.45);
+  opacity:0;
+  pointer-events:none;
+  transition:opacity .28s ease;
+  z-index:1999;
+}
+.menu-overlay.active{opacity:1; pointer-events:auto;}
+.mobile-close{position:absolute; top:14px; right:14px; background:transparent; color:#fff; border:0; font-size:28px; cursor:pointer; z-index:2001; padding:5px 10px; transition:color 0.3s ease;}
+
+/* ===== PAGE HEADER / HERO ===== */
+.page-header{
+  position: relative;
+  width: 100%;
+  height: auto;
+  min-height:auto;
+  background:
+    linear-gradient(135deg, rgba(15,76,117,0.85) 0%, rgba(0,98,153,0.85) 100%),
+    url("./images/hr-service\ 123.jpg") center center/cover no-repeat;
+  background-attachment: fixed;
+  color:#ffffff;
+  display:flex;
+  justify-content:center;
+  align-items:center;
+  text-align:center;
+  padding:120px 20px;
+}
+
+/* ===== SERVICES HERO ===== */
+.services-hero {
+  background: linear-gradient(135deg, rgba(15,76,117,0.88) 0%, rgba(0,98,153,0.88) 100%),
+              url("https://images.unsplash.com/photo-1551434678-e076c223a692?q=80&w=2000")
+              center center/cover no-repeat;
+  background-attachment: fixed;
+  color: #fff;
+  text-align: center;
+  padding: 120px 20px;
+  position: relative;
+}
+
+.services-hero h1 {
+  font-size: 48px;
+  opacity: 0;
+  transform: translateY(40px);
+  animation: fadeUpHero 1s ease forwards;
+  text-shadow: 2px 2px 12px rgba(0,0,0,0.4);
+  font-weight: 700;
+  letter-spacing: 0.5px;
+}
+
+.services-hero p {
+  font-size: 20px;
+  margin-top: 15px;
+  opacity: 0;
+  transform: translateY(30px);
+  animation: fadeUpHero 1s ease forwards;
+  animation-delay: 0.4s;
+  text-shadow: 1px 1px 8px rgba(0,0,0,0.3);
+  font-weight: 500;
+  letter-spacing: 0.3px;
+}
+
+@keyframes fadeUpHero {
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.page-header h1{
+  font-size:60px;
+  font-weight:700;
+  margin:0;
+  padding:0;
+  line-height:1.2;
+  text-shadow: 2px 2px 15px rgba(0,0,0,0.7);
+}
+
+/* ===== SECTION STYLES ===== */
+.section{
+  max-width:1200px;
+  margin:60px auto;
+  padding:40px 20px;
+  background: #ffffff;
+  border-radius: 0;
+}
+
+.section h2{
+  font-size:32px;
+  color:#0f4c75;
+  margin-bottom:40px;
+  text-align:center;
+  font-weight: 700;
+  position: relative;
+  padding-bottom: 15px;
+}
+
+.section h2::after {
+  content: "";
+  position: absolute;
+  bottom: 0;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 60px;
+  height: 4px;
+  background: linear-gradient(90deg, #00bcd4, #0097a7);
+  border-radius: 2px;
+}
+
+.section p{
+  margin-bottom:22px;
+  font-size:16px;
+  color: #555;
+  line-height: 1.8;
+}
+
+/* ===== SERVICES GRID ===== */
+.cards{
+  display:grid;
+  grid-template-columns:repeat(auto-fit,minmax(280px,1fr));
+  gap:25px;
+  margin-top:30px;
+}
+
+.card{
+  background:#f9f9f9;
+  border-radius:12px;
+  text-align:center;
+  box-shadow:0 8px 22px rgba(0,0,0,.08);
+  transition:.4s ease;
+  overflow:hidden;
+  position:relative;
+  border-top:4px solid #00bcd4;
+}
+
+/* ===== SERVICE CARD PROFESSIONAL ===== */
+.service-card {
+  background: #fff;
+  border-radius: 12px;
+  padding: 25px;
+  box-shadow: 0 4px 20px rgba(0,0,0,0.08);
+  transition: all 0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+  opacity: 0;
+  transform: translateY(60px);
+  border-top: 4px solid #00bcd4;
+  position: relative;
+  overflow: hidden;
+}
+
+.service-card::after {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: -100%;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(90deg, transparent, rgba(0,188,212,0.05), transparent);
+  transition: left 0.6s ease;
+  z-index: 1;
+  pointer-events: none;
+}
+
+.service-card.active {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.service-card:hover {
+  transform: translateY(-8px);
+  box-shadow: 0 15px 40px rgba(0,188,212,0.2);
+  border-top-color: #0097a7;
+}
+
+.service-card:hover::after {
+  left: 100%;
+}
+
+.service-card h3 {
+  font-size: 20px;
+  font-weight: 700;
+  color: #0f4c75;
+  margin-bottom: 12px;
+  transition: color 0.3s ease;
+}
+
+.service-card:hover h3 {
+  color: #00bcd4;
+}
+
+.service-card p {
+  font-size: 15px;
+  color: #666;
+  line-height: 1.6;
+  margin: 0;
+}
+
+.service-icon {
+  font-size: 50px;
+  margin-bottom: 20px;
+  transition: transform 0.4s ease;
+}
+
+.service-card:hover .service-icon {
+  transform: scale(1.1) rotate(5deg);
+}
+
+.services-section {
+  position: relative;
+  overflow: hidden;
+}
+
+.services-section::before {
+  content: "";
+  position: absolute;
+  width: 500px;
+  height: 500px;
+  background: radial-gradient(circle, rgba(0,188,212,0.08) 0%, transparent 70%);
+  top: -150px;
+  right: -150px;
+  animation: floatServices 10s ease-in-out infinite alternate;
+  z-index: 0;
+}
+
+@keyframes floatServices {
+  from { transform: translateY(0px); }
+  to { transform: translateY(40px); }
+}
+
+.card img{
+  width:100%;
+  height:180px;
+  object-fit:cover;
+  transition: transform .4s ease;
+}
+
+.card h3{
+  margin:15px 0 10px 0;
+  color:#222;
+  font-size:20px;
+}
+
+.card p{
+  padding:0 15px 20px 15px;
+  font-size:18px;
+}
+
+.card::before{
+  content:"";
+  position:absolute;
+  top:0; left:0;
+  width:100%; height:100%;
+  background:linear-gradient(to bottom, rgba(0,188,212,0.2), rgba(0,188,212,0.05));
+  opacity:0;
+  transition:opacity .4s ease;
+  border-radius:12px;
+}
+
+.card:hover::before{
+  opacity:1;
+}
+
+.card:hover img{
+  transform: scale(1.05);
+}
+
+/* ===== CLIENTELE GRID ===== */
+.clientele{
+  display:grid;
+  grid-template-columns: repeat(5, 1fr);
+  max-width:1200px;
+  margin:0 auto 60px auto;
+  gap:20px;
+  justify-items:center;
+  align-items:center;
+}
+
+.clientele .client-card{
+  background:#00bcd4;
+  color:#fff;
+  text-align:center;
+  padding:15px 20px;
+  border-radius:10px;
+  font-weight:500;
+  font-size:18px;
+  box-shadow:0 6px 15px rgba(0,0,0,.2);
+  display:flex;
+  flex-direction:column;
+  justify-content:center;
+  align-items:center;
+  transition:.3s;
+  word-wrap: break-word;
+  width:320px;
+  min-height:120px;
+}
+
+.clientele .client-card p{
+  margin-top:5px;
+  font-size:16px;
+}
+
+.clientele .client-card:hover{
+  background:#0097a7;
+  transform: translateY(-5px);
+}
+
+/* CLIENTELE POSITIONING */
+.clientele .client-card:nth-child(1){ grid-column: 2 / 3; grid-row:1; }
+.clientele .client-card:nth-child(2){ grid-column: 4 / 5; grid-row:1; }
+.clientele .client-card:nth-child(3){ grid-column: 3 / 4; grid-row:2; }
+.clientele .client-card:nth-child(4){ grid-column: 2 / 3; grid-row:3; }
+.clientele .client-card:nth-child(5){ grid-column: 4 / 5; grid-row:3; }
+
+/* DETAILED SERVICES */
+.service-detail{
+  margin-top:50px;
+}
+
+.service-detail h2{
+  font-size:36px;
+  color:#0f4c75;
+  margin-bottom:50px;
+  padding-bottom:20px;
+  border-bottom:3px solid #00bcd4;
+  text-align:center;
+}
+
+.service-item{
+  background:#ffffff;
+  border-left:5px solid #00bcd4;
+  padding:30px;
+  margin-bottom:30px;
+  border-radius:8px;
+  box-shadow:0 4px 12px rgba(0,0,0,0.08);
+  transition:all 0.3s ease;
+}
+
+.service-item:hover{
+  box-shadow:0 8px 20px rgba(0,188,212,0.15);
+  transform:translateY(-3px);
+}
+
+.service-item h3{
+  color:#0f4c75;
+  font-size:24px;
+  margin-bottom:15px;
+  display:flex;
+  align-items:center;
+}
+
+.service-item h3::before{
+  content:"";
+  width:8px;
+  height:8px;
+  background:#00bcd4;
+  border-radius:50%;
+  margin-right:12px;
+}
+
+.service-item h4{
+  color:#0f4c75;
+  font-size:18px;
+  margin-top:20px;
+  margin-bottom:10px;
+  font-weight:600;
+}
+
+.service-item p{
+  color:#555;
+  font-size:16px;
+  margin-bottom:12px;
+  line-height:1.8;
+}
+
+.service-item ul{
+  margin:15px 0 15px 20px;
+  list-style-type:none;
+}
+
+.service-item ul li{
+  color:#555;
+  font-size:16px;
+  margin-bottom:10px;
+  padding-left:25px;
+  position:relative;
+  line-height:1.6;
+}
+
+.service-item ul li::before{
+  content:"✓";
+  color:#00bcd4;
+  font-weight:bold;
+  position:absolute;
+  left:0;
+}
+
+.service-conclusion{
+  background:linear-gradient(135deg, #f0f8ff 0%, #f5f8fa 100%);
+  border:2px solid #00bcd4;
+  padding:25px;
+  border-radius:10px;
+  margin-top:40px;
+  text-align:center;
+}
+
+.service-conclusion p{
+  font-size:18px;
+  color:#0f4c75;
+  font-weight:600;
+  margin:0;
+}
+
+/* ===== TIE-UP COMPANIES ===== */
+.section:has(.tieups-grid){
+  background:linear-gradient(135deg, #f0f8ff 0%, #f5f8fa 100%);
+  border-radius:16px;
+  padding:50px 20px !important;
+  margin:60px auto 40px auto !important;
+}
+
+.section:has(.tieups-grid) h2{
+  font-size:36px;
+  color:#0f4c75;
+  margin-bottom:50px;
+  padding-bottom:20px;
+  border-bottom:4px solid #00bcd4;
+  display:inline-block;
+  width:100%;
+  text-align:center;
+}
+
+.tieups-grid{
+  display:grid;
+  grid-template-columns:repeat(auto-fit,minmax(240px,1fr));
+  gap:24px;
+  max-width:1100px;
+  margin:30px auto 0 auto;
+}
+
+.tieup-card{
+  background:#ffffff;
+  border:2px solid #e8f4f8;
+  padding:28px 20px;
+  border-radius:14px;
+  text-align:center;
+  box-shadow:0 8px 24px rgba(0,188,212,0.08);
+  font-weight:600;
+  font-size:17px;
+  color:#0f4c75;
+  transition:all 0.4s ease;
+  position:relative;
+  overflow:hidden;
+}
+
+.tieup-card::before{
+  content:"";
+  position:absolute;
+  top:0;
+  left:-100%;
+  width:100%;
+  height:100%;
+  background:linear-gradient(90deg, transparent, rgba(0,188,212,0.15), transparent);
+  transition:left 0.6s ease;
+}
+
+.tieup-card:hover{
+  border-color:#00bcd4;
+  box-shadow:0 12px 32px rgba(0,188,212,0.18);
+  transform:translateY(-6px);
+  color:#00bcd4;
+}
+
+.tieup-card:hover::before{
+  left:100%;
+}
+
+/* click/touch bounce animation for tieup cards */
+@keyframes clickBounce {
+  0% { transform: scale(1); }
+  50% { transform: scale(0.97); }
+  100% { transform: scale(1); }
+}
+
+.tieup-card{
+  transition: all 0.3s ease;
+  transform-origin: center center;
+}
+
+.tieup-card.clicked,
+.tieup-card.touched {
+  animation: clickBounce 0.4s ease forwards;
+  transform: translateY(-4px);
+  box-shadow:0 10px 28px rgba(0,188,212,0.18);
+  background:#e0f7fa;
+  border-color:var(--accent);
+}
+
+
+.service-detail h3{
+  margin-top:25px;
+  color:#00bcd4;
+}
+
+.service-detail p{
+  margin-bottom:16px;
+}
+
+/* ===== CERTIFICATION ===== */
+.iso-certification{
+  background:linear-gradient(135deg, #f0f8ff 0%, #f5f8fa 100%);
+  border:2px solid #00bcd4;
+  border-radius:16px;
+  padding:30px 40px;
+  text-align:center;
+  max-width:500px;
+  margin:0 auto 80px;
+  box-shadow:0 8px 24px rgba(0,188,212,0.12);
+}
+
+.iso-certification .cert-icon{
+  font-size:48px;
+  margin-bottom:12px;
+  display:inline-block;
+}
+
+.iso-certification h4{
+  color:#0f4c75;
+  font-size:16px;
+  margin-bottom:8px;
+  font-weight:600;
+}
+
+.iso-certification p{
+  color:#00bcd4;
+  font-size:22px;
+  font-weight:700;
+  margin:0;
+}
+
+/* ===== CTA SECTION ===== */
+.cta{
+  background:
+    linear-gradient(135deg, rgba(15,76,117,0.88) 0%, rgba(0,98,153,0.88) 100%),
+    url("./images/hr-service\ 123.jpg")
+    center center/cover no-repeat;
+  background-attachment: fixed;
+  color:#fff;
+  text-align:center;
+  padding:80px 20px;
+  margin:40px auto;
+  max-width:1200px;
+  border-radius:20px;
+  position: relative;
+}
+
+.cta h2{
+  font-size:36px;
+  margin-bottom:15px;
+  text-shadow: 2px 2px 10px rgba(0,0,0,0.3);
+  font-weight: 700;
+}
+
+.cta p{
+  font-size:18px;
+  margin-bottom:30px;
+  text-shadow: 1px 1px 6px rgba(0,0,0,0.2);
+  opacity: 0.95;
+}
+
+.btn{
+  display:inline-block;
+  background:#00bcd4;
+  color:#fff;
+  padding:14px 32px;
+  border-radius:30px;
+  text-decoration:none;
+  font-weight:600;
+  transition:all 0.4s ease;
+  box-shadow: 0 4px 15px rgba(0,188,212,0.3);
+}
+
+.btn:hover{
+  background:#0097a7;
+  transform: translateY(-2px);
+  box-shadow: 0 8px 25px rgba(0,188,212,0.4);
+}
+
+/* FOOTER */
+footer{
+  background:#1e1e1e;
+  color:#ffffff;
+  text-align:center;
+  padding:18px;
+  font-size:14px;
+  margin-top:60px;
+}
+
+/* ===== WHATSAPP BUTTON ===== */
+.whatsapp{
+  position:fixed;
+  bottom:30px;
+  right:30px;
+  width:60px;
+  height:60px;
+  background:linear-gradient(135deg, #25d366 0%, #20ba58 100%);
+  border-radius:50%;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  text-decoration:none;
+  font-size:28px;
+  color:#fff;
+  box-shadow:0 4px 15px rgba(37,211,102,0.4);
+  transition:all 0.3s ease;
+  z-index:999;
+  text-align:center;
+  line-height:1;
+}
+
+.whatsapp:hover{
+  transform:scale(1.1);
+  box-shadow:0 6px 25px rgba(37,211,102,0.6);
+}
+
+.whatsapp:active{
+  transform:scale(0.95);
+}
+
+/* ===== MOBILE RESPONSIVE ===== */
+@media(max-width:768px){
+  body {
+    overflow-x: hidden;
+  }
+  
+  .nav-links{display:none;}
+  .menu-toggle{display:block;}
+  .mobile-menu{padding:90px 25px;}
+  
+  .page-header {
+    height: auto;
+    min-height: 350px;
+    padding: 80px 20px;
+    background-position: center center;
+  }
+  
+  .logo-header img{height:40px;}
+  .logo-header > span{font-size:14px;}
+  .logo-text > span:first-child{font-size:14px;}
+  .logo .tagline{font-size:10px;}
+  
+  .page-header h1{
+    font-size: 28px;
+    font-weight: 700;
+    text-shadow: 2px 2px 10px rgba(0,0,0,0.5);
+  }
+  
+  .services-hero {
+    min-height: 300px;
+    padding: 80px 20px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+  }
+  
+  .services-hero h1{
+    font-size: 28px;
+    font-weight: 700;
+    max-width: 90%;
+    margin: 0 auto;
+    text-align: center;
+    line-height: 1.2;
+  }
+  
+  .services-hero p{
+    font-size: 16px;
+    font-weight: 500;
+    max-width: 90%;
+    margin: 10px auto 0 auto;
+    text-align: center;
+    line-height: 1.5;
+  }
+  
+  .section {
+    margin: 40px auto;
+    padding: 30px 20px;
+  }
+  
+  .section h2 {
+    font-size: 24px;
+    margin-bottom: 25px;
+  }
+  
+  .cards{
+    grid-template-columns: 1fr;
+    gap: 20px;
+  }
+  
+  .card {
+    margin: 0 auto;
+  }
+  
+  .card img{height:150px;}
+  
+  .service-card {
+    padding: 20px;
+    border-radius: 12px;
+  }
+  
+  .clientele{
+    grid-template-columns:1fr !important;
+    grid-template-rows:auto !important;
+    gap:20px;
+    max-width: 100%;
+    padding: 0 15px;
+  }
+  
+  .clientele .client-card{
+    width:100%;
+    height:auto;
+    margin:auto;
+    grid-column:auto !important;
+    grid-row:auto !important;
+    padding: 20px 15px;
+  }
+  
+  .section:has(.tieups-grid){
+    padding:30px 20px !important;
+    margin:30px auto 25px auto !important;
+    border-radius: 12px;
+  }
+  
+  .section:has(.tieups-grid) h2{
+    font-size:24px;
+    margin-bottom:25px;
+  }
+  
+  .tieups-grid{
+    grid-template-columns:1fr;
+    gap:16px;
+  }
+  
+  .tieup-card {
+    padding: 20px 15px;
+    border-radius: 10px;
+  }
+  
+  .cta{
+    padding:50px 20px;
+    margin:30px 15px;
+    border-radius: 12px;
+  }
+  
+  .cta h2{
+    font-size:26px;
+    font-weight: 700;
+  }
+  
+  .cta p{
+    font-size:16px;
+    margin-bottom: 25px;
+  }
+  
+  .btn {
+    padding: 12px 28px;
+    font-size: 14px;
+    border-radius: 25px;
+  }
+  
+  /* Mobile Responsive - Detailed Services */
+  .service-detail {
+    margin-top: 30px;
+  }
+  
+  .service-detail h2{
+    font-size:24px;
+    margin-bottom:25px;
+    padding-bottom:12px;
+  }
+  
+  .service-item{
+    padding:18px;
+    margin-bottom:18px;
+    border-left-width:4px;
+    border-radius: 6px;
+  }
+  
+  .service-item h3{
+    font-size:18px;
+    margin-bottom:10px;
+  }
+  
+  .service-item h3::before {
+    width: 6px;
+    height: 6px;
+    margin-right: 8px;
+  }
+  
+  .service-item h4{
+    font-size:16px;
+    margin-top:12px;
+    margin-bottom:8px;
+  }
+  
+  .service-item p{
+    font-size:14px;
+    margin-bottom:8px;
+  }
+  
+  .service-item ul{
+    margin:10px 0 10px 15px;
+  }
+  
+  .service-item ul li{
+    font-size:14px;
+    margin-bottom:6px;
+    padding-left:18px;
+  }
+  
+  .service-conclusion{
+    padding:18px;
+    border-radius: 8px;
+    margin-top: 25px;
+  }
+  
+  .service-conclusion p{
+    font-size:14px;
+  }
+  
+  .iso-certification {
+    max-width: 90%;
+    padding: 20px;
+    margin: 0 auto 50px;
+  }
+  
+  .whatsapp{
+    width:52px;
+    height:52px;
+    font-size:24px;
+    bottom:18px;
+    right:18px;
+  }
+}
+
+/* ===== PROFESSIONAL FOOTER ===== */
+.footer{
+  background:#0f172a;
+  padding:18px;
+  text-align:center;
+  color:#cbd5e1;
+  font-size:14px;
+  font-family:'Poppins',sans-serif;
+}
+.footer a{
+  color:#00bcd4;
+  font-weight:600;
+  text-decoration:none;
+  transition:0.3s;
+}
+.footer a:hover{
+  color:#fff;
+  text-shadow:0 0 10% #00bcd4;
+}
+</style>
+</head>
+<body>
+
+<!-- HEADER -->
+<header>
+  <nav class="navbar">
+    <div class="logo">
+      <a href="index.html">
+        <div class="logo-header">
+          <img src="./images/Dhriti logo.jpeg" alt="Dhriti HR Logo">
+          <div class="logo-text">
+            <span>Dhriti HR Solutions</span>
+            <span class="tagline"><span class="initial T">T</span>ogether <span class="initial E">E</span>verybody <span class="initial A">A</span>chieves <span class="initial M">M</span>ore Spirit</span>
+          </div>
+        </div>
+      </a>
+    </div>
+
+    <ul class="nav-links">
+      <li><a href="index.html">Home</a></li>
+      <li><a href="about.html">About</a></li>
+      <li><a href="services.html">Services</a></li>
+      <li><a href="careers.html">Careers</a></li>
+      <li><a href="contact.html">Contact</a></li>
+    </ul>
+
+    <div class="menu-toggle" id="menuToggle">☰</div>
+  </nav>
+</header>
+
+<!-- Mobile Slide Menu -->
+<div class="mobile-menu" id="mobileMenu">
+  <button class="mobile-close" id="mobileClose" aria-label="Close mobile menu">✖</button>
+  <ul>
+    <li><a href="index.html">Home</a></li>
+    <li><a href="about.html">About</a></li>
+    <li><a href="services.html">Services</a></li>
+    <li><a href="careers.html">Careers</a></li>
+    <li><a href="contact.html">Contact</a></li>
+  </ul>
+</div>
+
+<div class="menu-overlay" id="menuOverlay"></div>
+
+<!-- PAGE HEADER -->
+<div class="page-header services-hero">
+  <h1>Our Services</h1>
+  <p>Professional HR solutions tailored to your needs.</p>
+</div>
+
+<!-- SERVICES -->
+<section class="section services-section">
+  <p>Dhriti HR Solutions provides end-to-end HR consultancy and manpower solutions designed to help organizations attract, manage, and retain top talent efficiently.</p>
+  <div class="cards">
+    <div class="card service-card">
+      <img src="./images/Talent Acquisition.png" alt="Talent Acquisition">
+      <h3>Talent Acquisition</h3>
+      <p>Finding and recruiting the right talent efficiently to achieve organizational goals.</p>
+    </div>
+    <div class="card service-card">
+      <img src="./images/hr-consulting.jpeg" alt="HR Consulting">
+      <h3>HR Consulting</h3>
+      <p>Providing strategic HR guidance, compliance support, and workforce planning.</p>
+    </div>
+    <div class="card service-card">
+      <img src="./images/payroll management.png" alt="Payroll Management">
+      <h3>Payroll Management</h3>
+      <p>Ensuring accurate payroll processing, tax compliance, and timely payments.</p>
+    </div>
+    <div class="card service-card">
+      <img src="./images/manpower management.png" alt="Manpower Consulting">
+      <h3>Manpower Consulting</h3>
+      <p>Flexible staffing solutions including permanent, contract, and project-based resources.</p>
+    </div>
+    <div class="card service-card">
+      <img src="./images/perfomance management.png" alt="Performance Management">
+      <h3>Performance Management</h3>
+      <p>Optimizing workforce performance through structured evaluation and feedback systems.</p>
+    </div>
+    <div class="card service-card">
+      <img src="./images/hr compliance.png" alt="HR Compliance">
+      <h3>HR Compliance</h3>
+      <p>Ensuring your organization adheres to labor laws and regulatory requirements.</p>
+    </div>
+  </div>
+</section>
+
+<!-- TIE-UP COMPANIES -->
+<section class="section">
+  <h2>Our Tie-up Companies</h2>
+  <div class="tieups-grid">
+    <div class="tieup-card">Vishwanath projects limited</div>
+    <div class="tieup-card">Lackeir Stilit Industries Private Limited</div>
+    <div class="tieup-card">Sri Shiva Parvathi Projects &amp; Constructions</div>
+    <div class="tieup-card">Platinum Projects and Estates</div>
+  </div>
+</section>
+
+<!-- DETAILED SERVICES -->
+<section class="section service-detail">
+  <h2>Our Services – Comprehensive Scope</h2>
+
+  <!-- Service 1 -->
+  <div class="service-item">
+    <h3>Recruiting, Hiring and Retaining Talent</h3>
+    <p>Talent acquisition is one of the core functions of Dhriti HR Solutions. Effectively assessing the workforce capabilities and performance to match organizational goals is crucial for the health of the organization. HR managers have to keep their finger on the pulse of the company to ensure personnel levels can meet demand. They must also be strategic when hiring for new roles or restructuring teams and make hard decisions about staffing.</p>
+    
+    <h4>Recruiting Candidates</h4>
+    <p>Finding the right person starts with accurate and detailed job descriptions. Dhriti analyzes the market and sets competitive salary ranges before promoting available positions on various platforms. We screen applications and resumes to identify which candidates should move forward in the hiring process. From there, we shortlist the most desired and eligible candidates and simplify the entire recruitment process.</p>
+    
+    <h4>Hiring Employees</h4>
+    <p>Dhriti conducts thorough background checks, manages onboarding of new employees, and explains payroll, benefits and company policies. There is considerable important legal paperwork, recordkeeping and administrative responsibility involved in the hiring process. We ensure all information is present, correct and properly protected, which is critical to the security of employees and the company.</p>
+    
+    <h4>Retaining Talent</h4>
+    <p>Dhriti is also responsible for employee retention, which is often overlooked in discussions around talent acquisition. We help maintain these key elements:</p>
+    <ul>
+      <li>Respectful treatment of all employees at all levels</li>
+      <li>Trust between employees and senior management</li>
+      <li>Opportunities to use skills and abilities at work</li>
+      <li>Fair compensation and competitive pay</li>
+      <li>Job security</li>
+    </ul>
+  </div>
+
+  <!-- Service 2 -->
+  <div class="service-item">
+    <h3>Employee Engagement</h3>
+    <p>The only way to build and maintain a vibrant company culture is to unite everyone around shared goals, mission and values. Dhriti encourages employees to discuss concerns or report situations so that problems can be worked through as soon as possible, instead of snowballing into a potentially damaging situation.</p>
+    
+    <h4>Building Rapport and Trust</h4>
+    <p>The following activities help build strong relationships among leadership, management and employees:</p>
+    <ul>
+      <li>Recognizing individual and group achievements</li>
+      <li>Sharing successes and failures transparently</li>
+      <li>Asking for feedback and listening to concerns</li>
+      <li>Organizing company-wide gatherings and team events</li>
+      <li>Communicating new policies, decisions and strategic goals in a timely manner</li>
+      <li>Mediating conflicts or tensions between employees</li>
+    </ul>
+  </div>
+
+  <!-- Service 3 -->
+  <div class="service-item">
+    <h3>Performance Management</h3>
+    <p>Performance management is the process of maintaining or improving job performance. Typically, this is done through the use of assessment tools, coaching and counselling, and providing continuous feedback. This systematic approach helps employees understand expectations and achieve organizational objectives while developing professionally.</p>
+  </div>
+
+  <!-- Service 4 -->
+  <div class="service-item">
+    <h3>Compensation and Benefits</h3>
+    <p>Calculating fair compensation rates and putting together a comprehensive benefits package is a significant focus of Dhriti. We ensure every employee receives decent compensation in exchange for their hard work. The goal is to create a competitive and attractive offer that aligns with the candidate's experience and expectations, which is essential for retaining talent in a competitive market.</p>
+  </div>
+
+  <!-- Service 5 -->
+  <div class="service-item">
+    <h3>Development and Training</h3>
+    <p>Offering ample opportunities for individuals to learn new skills and further improve their existing talents is advantageous to both the company and employees alike. Robust professional development programs have positive effects on employee productivity, enhance performance, increase opportunities to promote from within, and reduce turnover rates. When employees feel their organization is investing in their growth, they are more likely to engage with and shape company culture positively.</p>
+    
+    <h4>Training Program Focus Areas</h4>
+    <p>Dhriti HR Solutions provides training sessions aligned with the organization's strategic goals and legal responsibilities. Our team coordinates company-wide informational sessions and seminars around important topics including:</p>
+    <ul>
+      <li>Diversity, inclusion and equity in the workplace</li>
+      <li>Recognizing and reporting sexual harassment</li>
+      <li>Mandated reporting requirements</li>
+      <li>Emerging technology and digital skills</li>
+      <li>Industry and market trends</li>
+    </ul>
+  </div>
+
+  <!-- Service 6 -->
+  <div class="service-item">
+    <h3>Risk Management</h3>
+    <p>Another key function of human resources is identifying, assessing and resolving short- and long-term risks before they become a real threat. This serves to protect both the employees and the company. While risk management isn't typically the sole responsibility of HR professionals, they play an important role in the process.</p>
+    
+    <h4>Risk Mitigation Strategies</h4>
+    <p>Some examples of how Dhriti HR department mitigates organizational risk include:</p>
+    <ul>
+      <li>Properly training managers and collecting anonymous feedback from their direct reports</li>
+      <li>Implementing measures to maintain or increase workplace diversity</li>
+      <li>Working with IT to ensure data and sensitive records are secure and private</li>
+      <li>Accurately tracking, updating and protecting employee records</li>
+      <li>Investigating complaints and allegations of harassment, racism, sexism, favoritism, etc.</li>
+    </ul>
+  </div>
+
+  <!-- Service 7 -->
+  <div class="service-item">
+    <h3>Audits and Legal Compliance</h3>
+    <p>The laws on matters such as labour, benefits, fair compensation, hiring and firing are complex. They also vary by state and are subject to change periodically. Knowing and following state, federal and local regulations is necessary for the success of any organization.</p>
+    <p>Dhriti HR Solutions remains up-to-date with all regulatory requirements and ensures your organization maintains full compliance across all legal frameworks, protecting both your business and your employees.</p>
+  </div>
+
+  <!-- Conclusion -->
+  <div class="service-conclusion">
+    <p>Dhriti HR Solutions - 
+Complete Human Capital Resource Management for Every Organization.
+We deliver customized, strategic HR solutions designed to meet your unique business needs—empowering organizations to attract, develop, and retain exceptional talent..</p>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer class="footer">
+  Copyright © 2026 Dhriti HR Solutions | 
+  Website Designed by 
+  <a href="developer.html" target="_blank">Sai Lohith Sahu</a>
+</footer>
+
+<script>
+// Mobile menu toggle
+const toggle = document.getElementById("menuToggle");
+const mobileMenu = document.getElementById("mobileMenu");
+const overlay = document.getElementById('menuOverlay');
+const mobileClose = document.getElementById('mobileClose');
+
+function openMenu(){
+  mobileMenu.classList.add('active');
+  if(overlay) overlay.classList.add('active');
+  toggle.textContent = '✖';
+  toggle.setAttribute('aria-label', 'Close mobile menu');
+}
+
+function closeMenu(){
+  mobileMenu.classList.remove('active');
+  if(overlay) overlay.classList.remove('active');
+  toggle.textContent = '☰';
+  toggle.setAttribute('aria-label', 'Open mobile menu');
+}
+
+toggle.onclick = () => { if(mobileMenu.classList.contains('active')) closeMenu(); else openMenu(); };
+mobileClose && mobileClose.addEventListener('click', closeMenu);
+overlay && overlay.addEventListener('click', closeMenu);
+mobileMenu && mobileMenu.addEventListener('click', (e) => { if(e.target === mobileMenu) closeMenu(); });
+
+// Close menu when clicking a nav link
+document.querySelectorAll('.mobile-menu a').forEach(link => {
+  link.addEventListener('click', closeMenu);
+});
+
+document.addEventListener('keydown', (e) => { if(e.key === 'Escape') closeMenu(); });
+
+// Service cards reveal animation
+const serviceCards = document.querySelectorAll('.service-card');
+
+function revealServices() {
+  serviceCards.forEach((card, index) => {
+    const top = card.getBoundingClientRect().top;
+    if (top < window.innerHeight - 100) {
+      setTimeout(() => {
+        card.classList.add('active');
+      }, index * 150);
+    }
+  });
+}
+
+window.addEventListener('scroll', revealServices);
+revealServices();
+
+// touch/click feedback for tie-up cards
+const tieupCards = document.querySelectorAll('.tieup-card');
+tieupCards.forEach(card => {
+  function add(cls){ card.classList.add(cls); }
+  function remove(cls){
+    card.addEventListener('animationend', () => card.classList.remove(cls), { once: true });
+  }
+  card.addEventListener('mousedown', () => { add('clicked'); remove('clicked'); });
+  card.addEventListener('mouseleave', () => card.classList.remove('clicked'));
+  card.addEventListener('touchstart', () => { add('touched'); remove('touched'); });
+  card.addEventListener('touchcancel', () => card.classList.remove('touched'));
+});
+</script>
+
+<a class="whatsapp" href="https://wa.me/919866711002" target="_blank">💬</a>
+
+</body>
+</html>

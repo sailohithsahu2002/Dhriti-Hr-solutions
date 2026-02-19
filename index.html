@@ -1,0 +1,1196 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Dhriti HR Solutions</title>
+
+<style>
+:root{
+  --primary:#0f4c75;
+  --accent:#00bcd4;
+  --dark:#1e1e1e;
+  --light:#f4f7fb;
+}
+
+*{
+  margin:0;
+  padding:0;
+  box-sizing:border-box;
+  font-family:"Segoe UI",Arial,sans-serif;
+}
+
+body{
+  background:#fff;
+  color:#333;
+  line-height:1.7;
+}
+
+/* ================= HEADER ================= */
+header{
+  background:var(--dark);
+  position:sticky;
+  top:0;
+  z-index:1000;
+}
+
+.navbar{
+  max-width:1200px;
+  margin:auto;
+  padding:12px 20px;
+  display:flex;
+  justify-content:space-between;
+  align-items:center;
+}
+
+.logo a{
+  display:flex;
+  flex-direction:column;
+  gap:2px;
+  color:#fff;
+  text-decoration:none;
+}
+
+.logo-header{
+  display:flex;
+  flex-direction:row;
+  align-items:center;
+  gap:12px;
+}
+
+.logo-header img{
+  height:55px;
+  width:auto;
+}
+
+.logo-text{
+  display:flex;
+  flex-direction:column;
+  gap:2px;
+}
+
+.logo-text > span:first-child{
+  font-size:18px;
+  font-weight:600;
+  color:#fff;
+}
+
+.logo-header > span{
+  font-size:18px;
+  font-weight:600;
+}
+
+.logo img{
+  height:55px;
+  width:auto;
+}
+
+.logo a > span:nth-child(2){
+  font-size:14px;
+  font-weight:400;
+}
+
+/* Tagline below logo */
+.logo .tagline{
+  font-size:13px;
+  font-weight:400;
+  color:#ffffff;
+  line-height:1.1;
+}
+
+  .tagline .initial{font-weight:700;}
+  .tagline .initial.T{color:#ffffff;}
+  .tagline .initial.E{color:#0d6efd;} /* blue */
+  .tagline .initial.A{color:orange;}
+  .tagline .initial.M{color:#28a745;} /* green */
+
+/* DESKTOP NAV */
+.nav-links{
+  list-style:none;
+  display:flex;
+  gap:25px;
+}
+
+.nav-links a{
+  color:#fff;
+  text-decoration:none;
+  font-size:17px;
+}
+
+.nav-links a:hover{color:var(--accent);}
+
+/* HAMBURGER */
+.menu-toggle{
+  display:none;
+  font-size:28px;
+  color:#fff;
+  cursor:pointer;
+  background:transparent;
+  border:none;
+  padding:8px 12px;
+  z-index:1500;
+  transition:color 0.3s ease;
+}
+
+/* MOBILE SLIDE MENU (RIGHT) */
+.mobile-menu{
+  position:fixed;
+  top:0;
+  right:-100%;
+  width:70vw;
+  max-width:280px;
+  height:100vh;
+  background:var(--dark);
+  padding-top:80px;
+  padding-left:20px;
+  padding-right:20px;
+  padding-bottom:20px;
+  transition:right 0.4s ease;
+  z-index:2000;
+  box-shadow:-6px 0 20px rgba(0,0,0,0.3);
+  overflow-y:auto;
+}
+
+.mobile-menu.active{
+  right:0;
+}
+
+.mobile-menu ul{list-style:none; margin:0; padding:0;}
+.mobile-menu li{margin-bottom:25px;}
+.mobile-menu a{
+  color:#fff;
+  text-decoration:none;
+  font-size:18px;
+  display:block;
+  padding:10px 5px;
+  transition:color 0.3s ease;
+}
+.mobile-menu a:hover{color:var(--accent);}
+
+/* Dimmed backdrop when mobile menu is open */
+.menu-overlay{
+  position:fixed;
+  inset:0;
+  background:rgba(0,0,0,0.45);
+  opacity:0;
+  pointer-events:none;
+  transition:opacity 0.28s ease;
+  z-index:1999;
+}
+
+.menu-overlay.active{opacity:1; pointer-events:auto;}
+
+.mobile-close{
+  position:absolute;
+  top:14px;
+  right:14px;
+  background:transparent;
+  color:#fff;
+  border:none;
+  font-size:28px;
+  cursor:pointer;
+  z-index:2001;
+  padding:5px 10px;
+  transition:color 0.3s ease;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+}
+
+.mobile-close:hover{color:var(--accent);}
+
+/* ================= HERO (SLIDER) ================= */
+.hero{
+  height:85vh;
+  position:relative;
+  overflow:hidden;
+}
+
+.hero-slide{
+  position:absolute;
+  width:100%;
+  height:100%;
+  background-size:cover;
+  background-position:center;
+  top:0;
+  left:0;
+  opacity:0;
+  transition:opacity 1s ease-in-out;
+  filter: blur(0.8px) brightness(1.05);
+}
+
+.hero-slide.active{
+  opacity:1;
+}
+
+/* Video hero: covers full hero area with light blur */
+.hero-video{
+  position:absolute;
+  top:0;
+  left:0;
+  width:100%;
+  height:100%;
+  object-fit:cover;
+  filter: blur(2px) brightness(0.9);
+  opacity:0;
+  transition:opacity 1.5s ease-in-out;
+}
+
+.hero-video.active{
+  opacity:1;
+}
+
+/* subtle overlay to improve text contrast */
+.hero::before{
+  content:'';
+  position:absolute;
+  top:0;
+  left:0;
+  width:100%;
+  height:100%;
+  background:rgba(0,0,0,0.18);
+  z-index:1;
+}
+
+.hero-content{
+  position:absolute;
+  z-index:2;
+  color:#fff;
+  max-width:600px;
+  text-align:left;
+  top:80px;
+  left:60px;
+}
+
+.hero-content h1{
+  font-size:56px;
+  margin-bottom:15px;
+  text-shadow: 2px 2px 10px rgba(0,0,0,0.6);
+}
+
+.hero-content p{
+  font-size:22px;
+  margin-bottom:30px;
+  opacity:.95;
+  text-shadow: 1px 1px 8px rgba(0,0,0,0.6);
+}
+
+.btn{
+  display:inline-block;
+  background:var(--accent);
+  color:#fff;
+  padding:14px 32px;
+  border-radius:30px;
+  text-decoration:none;
+  font-weight:600;
+}
+
+.btn:hover{background:#0097a7;}
+
+/* ================= SECTION ================= */
+.section{
+  max-width:1200px;
+  margin:90px auto;
+  padding:0 20px;
+}
+
+.section-title{
+  text-align:center;
+  margin-bottom:50px;
+}
+
+.section-title h2{
+  font-size:42px;
+  color:var(--primary);
+}
+
+/* ================= ABOUT ================= */
+.about-grid{
+  display:grid;
+  grid-template-columns:1fr 1fr;
+  gap:60px;
+  align-items:center;
+}
+
+.about-grid img{
+  width:100%;
+  height:420px;
+  object-fit:cover;
+  border-radius:20px;
+  box-shadow:0 18px 40px rgba(0,0,0,.15);
+}
+
+/* ================= SERVICES ================= */
+.services{
+  display:grid;
+  grid-template-columns:repeat(4,1fr);
+  gap:30px;
+}
+
+.service-card{
+  background:var(--light);
+  padding:20px;
+  border-radius:18px;
+  text-align:center;
+  box-shadow:0 10px 25px rgba(0,0,0,.08);
+  cursor:pointer;
+  transition:transform 0.3s;
+  position:relative;
+}
+
+.service-card:hover{transform:translateY(-5px);}
+
+.service-card img{
+  width:100%;
+  border-radius:15px;
+  margin-bottom:12px;
+}
+
+.service-content{
+  margin-top:12px;
+  font-size:18px;
+  color:#333;
+  line-height:1.5;
+  text-align:left;
+  background:#fff;
+  padding:15px;
+  border-radius:10px;
+  box-shadow:0 8px 20px rgba(0,0,0,0.1);
+  animation: slideDown 0.3s ease forwards;
+}
+
+/* Slide-down animation */
+@keyframes slideDown{
+  from{opacity:0; transform:translateY(-10px);}
+  to{opacity:1; transform:translateY(0);}
+}
+
+/* ================= MOTTO GRID ================= */
+.motto-grid{
+  display:grid;
+  grid-template-columns:repeat(3,1fr);
+  gap:30px;
+  margin-bottom:40px;
+}
+
+.motto-card{
+  background:#fff;
+  padding:30px;
+  border-radius:16px;
+  box-shadow:0 8px 24px rgba(0,188,212,0.1);
+  border-top:5px solid var(--accent);
+  transition:all 0.3s ease;
+}
+
+.motto-card:hover{
+  transform:translateY(-8px);
+  box-shadow:0 12px 32px rgba(0,188,212,0.2);
+}
+
+.motto-card h3{
+  color:var(--primary);
+  font-size:22px;
+  margin-bottom:15px;
+}
+
+.motto-card p{
+  color:#555;
+  font-size:16px;
+  line-height:1.8;
+  margin-bottom:12px;
+}
+
+/* ================= HR SERVICES GRID ================= */
+.hr-services-grid{
+  display:grid;
+  grid-template-columns:repeat(4,1fr);
+  gap:25px;
+  max-width:1200px;
+  margin:0 auto;
+}
+
+.hr-service-box{
+  background:#fff;
+  padding:25px;
+  border-radius:14px;
+  text-align:center;
+  box-shadow:0 6px 18px rgba(0,0,0,0.08);
+  transition:all 0.3s ease;
+}
+
+.hr-service-box:hover{
+  transform:translateY(-5px);
+  box-shadow:0 10px 28px rgba(0,188,212,0.15);
+}
+
+.service-icon{
+  font-size:42px;
+  margin-bottom:15px;
+}
+
+.hr-service-box h4{
+  color:var(--primary);
+  font-size:18px;
+  margin-bottom:12px;
+}
+
+.hr-service-box p{
+  color:#555;
+  font-size:14px;
+  line-height:1.6;
+}
+
+/* ================= FOCUS GRID ================= */
+.focus-grid{
+  display:grid;
+  grid-template-columns:repeat(auto-fit,minmax(220px,1fr));
+  gap:20px;
+  max-width:1200px;
+  margin:0 auto;
+}
+
+.focus-item{
+  background:linear-gradient(135deg, var(--accent) 0%, #0097a7 100%);
+  color:#fff;
+  padding:20px;
+  border-radius:12px;
+  text-align:center;
+  font-weight:600;
+  box-shadow:0 6px 15px rgba(0,188,212,0.2);
+  transition:all 0.3s ease;
+}
+
+.focus-item:hover{
+  transform:translateY(-3px);
+  box-shadow:0 10px 25px rgba(0,188,212,0.3);
+}
+
+/* ================= CLIENTS SERVED ================= */
+.clients-served{
+  background:#f8f9fa;
+  padding:40px;
+  border-radius:16px;
+  border-left:6px solid var(--accent);
+  max-width:900px;
+  margin:0 auto;
+}
+
+.clients-served p{
+  font-size:16px;
+  color:#555;
+  margin-bottom:18px;
+  line-height:1.8;
+}
+
+.clients-served p strong{
+  color:var(--primary);
+}
+
+/* ================= CERTIFICATION ================= */
+.iso-certification{
+  background:linear-gradient(135deg, #f0f8ff 0%, #f5f8fa 100%);
+  border:2px solid var(--accent);
+  border-radius:16px;
+  padding:30px 40px;
+  text-align:center;
+  max-width:500px;
+  margin:0 auto 80px;
+  box-shadow:0 8px 24px rgba(0,188,212,0.12);
+}
+
+.iso-certification .cert-icon{
+  font-size:48px;
+  margin-bottom:12px;
+  display:inline-block;
+}
+
+.iso-certification h4{
+  color:var(--primary);
+  font-size:16px;
+  margin-bottom:8px;
+  font-weight:600;
+}
+
+.iso-certification p{
+  color:var(--accent);
+  font-size:22px;
+  font-weight:700;
+  margin:0;
+}
+
+/* ================= WHY ================= */
+.why{
+  background:var(--light);
+  padding:80px 20px;
+}
+
+.why-grid{
+  max-width:1100px;
+  margin:auto;
+  display:grid;
+  grid-template-columns:repeat(3,1fr);
+  gap:30px;
+}
+
+.why-box{
+  background:#fff;
+  padding:30px;
+  border-radius:16px;
+  box-shadow:0 10px 25px rgba(0,0,0,.08);
+}
+
+/* ================= CTA ================= */
+.cta{
+  background:
+    linear-gradient(rgba(15,76,117,.9),rgba(15,76,117,.9)),
+    url("https://images.unsplash.com/photo-1521737604893-d14cc237f11d?q=80&w=2400")
+    center/cover no-repeat;
+  color:#fff;
+  text-align:center;
+  padding:80px 20px;
+}
+
+/* ================= FOOTER ================= */
+footer{
+  background:var(--dark);
+  color:#fff;
+  text-align:center;
+  padding:18px;
+  font-size:14px;
+}
+
+/* ===== WHATSAPP BUTTON ===== */
+.whatsapp{
+  position:fixed;
+  bottom:30px;
+  right:30px;
+  width:60px;
+  height:60px;
+  background:linear-gradient(135deg, #25d366 0%, #20ba58 100%);
+  border-radius:50%;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  text-decoration:none;
+  font-size:28px;
+  color:#fff;
+  box-shadow:0 4px 15px rgba(37,211,102,0.4);
+  transition:all 0.3s ease;
+  z-index:999;
+  text-align:center;
+  line-height:1;
+}
+
+.whatsapp:hover{
+  transform:scale(1.1);
+  box-shadow:0 6px 25px rgba(37,211,102,0.6);
+}
+
+.whatsapp:active{
+  transform:scale(0.95);
+}
+
+/* ================= MOBILE ================= */
+@media(max-width:992px){
+  .services{grid-template-columns:repeat(2,1fr);}
+  .motto-grid{grid-template-columns:repeat(2,1fr);}
+  .hr-services-grid{grid-template-columns:repeat(2,1fr);}
+}
+
+@media(max-width:768px){
+  .nav-links{display:none;}
+  .menu-toggle{display:block;}
+
+  /* Center hero content vertically and improve readability on small screens */
+  .hero-content{
+    top:50%;
+    left:50%;
+    transform:translate(-50%,-50%);
+    padding:0 20px;
+    max-width:560px;
+    text-align:center;
+  }
+
+  .hero-content h1{
+    font-size:28px;
+    line-height:1.15;
+    margin-bottom:10px;
+  }
+
+  .hero-content p{
+    font-size:16px;
+    margin-bottom:18px;
+  }
+
+  /* Make CTA easy to tap on mobile */
+  .hero-content .btn{
+    display:block;
+    width:86%;
+    max-width:320px;
+    padding:12px 18px;
+    margin:0 auto 36px;
+    font-size:16px;
+  }
+
+  .about-grid{grid-template-columns:1fr;}
+  .why-grid{grid-template-columns:1fr;}
+  .services{grid-template-columns:1fr;}
+  .motto-grid{grid-template-columns:1fr;}
+  .hr-services-grid{grid-template-columns:1fr;}
+  .focus-grid{grid-template-columns:repeat(auto-fit,minmax(150px,1fr));}
+  .clients-served{padding:25px; border-left-width:4px;}
+  .clients-served p{font-size:15px; margin-bottom:12px;}
+  .logo-header img{height:40px;}
+  .logo-header > span{font-size:16px;}
+  .logo .tagline{font-size:10px;}
+  .whatsapp{width:52px; height:52px; font-size:24px; bottom:18px; right:18px;}
+}
+
+/* Scroll Reveal Animation */
+.reveal {
+  opacity: 0;
+  transform: translateY(60px);
+  transition: all 1s cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+.reveal.active {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* Hero content fade-up animation */
+.hero-content h1,
+.hero-content p,
+.hero-content .btn {
+  opacity: 0;
+  transform: translateY(40px);
+  animation: fadeUp 1s ease forwards;
+}
+
+.hero-content p {
+  animation-delay: 0.4s;
+}
+
+.hero-content .btn {
+  animation-delay: 0.8s;
+}
+
+@keyframes fadeUp {
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* Button enhancements */
+.btn {
+  display: inline-block;
+  background: var(--accent);
+  color: #fff;
+  padding: 14px 32px;
+  border-radius: 30px;
+  text-decoration: none;
+  font-weight: 600;
+  transition: all 0.4s ease;
+  position: relative;
+  overflow: hidden;
+}
+
+.btn:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 10px 30px rgba(0,188,212,0.4);
+}
+
+/* Service card hover improvements */
+.service-card {
+  background: var(--light);
+  padding: 20px;
+  border-radius: 18px;
+  text-align: center;
+  box-shadow: 0 10px 25px rgba(0,0,0,.08);
+  cursor: pointer;
+  transition: all 0.4s ease;
+  /* ensure transform origin for scaling effects */
+  transform-origin: center center;
+}
+
+.service-card:hover {
+  transform: translateY(-10px);
+  box-shadow: 0 20px 40px rgba(0,0,0,0.15);
+}
+
+/* image reaction on hover/touch */
+.service-card img {
+  transition: transform 0.3s ease;
+  transform-origin: center center;
+}
+
+.service-card:hover img,
+.service-card.touched img {
+  transform: scale(1.05);
+}
+
+/* mobile-friendly: when card has touched or clicked class also slightly lift and change color */
+.service-card.touched,
+.service-card.clicked {
+  transform: translateY(-8px) scale(1.02);
+  box-shadow: 0 18px 35px rgba(0,0,0,0.12);
+  background: #e0f7fa; /* light accent shade */
+  border: 2px solid var(--accent);
+}
+
+/* ensure transition includes background and border for smooth color change */
+.service-card {
+  background: var(--light);
+  padding: 20px;
+  border-radius: 18px;
+  text-align: center;
+  box-shadow: 0 10px 25px rgba(0,0,0,.08);
+  cursor: pointer;
+  transition: all 0.4s ease;
+  /* ensure transform origin for scaling effects */
+  transform-origin: center center;
+  /* include background and border in transition */
+  transition-property: transform, box-shadow, background, border;
+}
+
+/* add similar feedback for other interactive boxes */
+.hr-service-box.clicked,
+.hr-service-box.touched,
+.motto-card.clicked,
+.motto-card.touched {
+  transform: translateY(-6px) scale(1.01);
+  box-shadow: 0 12px 32px rgba(0,188,212,0.15);
+  background: #e0f7fa;
+  border: 2px solid var(--accent);
+}
+
+
+/* Gradient animated background */
+body {
+  background: linear-gradient(-45deg, #ffffff, #f4f7fb, #eef6fb, #ffffff);
+  background-size: 400% 400%;
+  animation: gradientFlow 15s ease infinite;
+}
+
+@keyframes gradientFlow {
+  0% { background-position: 0% 50%; }
+  50% { background-position: 100% 50%; }
+  100% { background-position: 0% 50%; }
+}
+
+/* Stagger animation for list items */
+.stagger {
+  opacity: 0;
+  transform: translateY(40px);
+  transition: all 0.8s ease;
+}
+
+.stagger.active {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* ===== PROFESSIONAL FOOTER ===== */
+.footer{
+  background:#0f172a;
+  padding:18px;
+  text-align:center;
+  color:#cbd5e1;
+  font-size:14px;
+  font-family:'Poppins',sans-serif;
+}
+.footer a{
+  color:#00bcd4;
+  font-weight:600;
+  text-decoration:none;
+  transition:0.3s;
+}
+.footer a:hover{
+  color:#fff;
+  text-shadow:0 0 10px #00bcd4;
+}
+</style>
+</head>
+
+<body>
+
+<header>
+<nav class="navbar">
+  <div class="logo">
+    <a href="index.html">
+      <div class="logo-header">
+        <img src="./images/Dhriti logo.jpeg" alt="Dhriti HR Logo">
+        <div class="logo-text">
+          <span>Dhriti HR Solutions</span>
+          <span class="tagline"><span class="initial T">T</span>ogether <span class="initial E">E</span>verybody <span class="initial A">A</span>chieves <span class="initial M">M</span>ore Spirit</span>
+        </div>
+      </div>
+    </a>
+  </div>
+
+  <!-- Desktop Menu -->
+  <ul class="nav-links">
+    <li><a href="index.html">Home</a></li>
+    <li><a href="about.html">About</a></li>
+    <li><a href="services.html">Services</a></li>
+    <li><a href="careers.html">Careers</a></li>
+    <li><a href="contact.html">Contact</a></li>
+  </ul>
+
+  <!-- Hamburger -->
+  <div class="menu-toggle" id="menuToggle">☰</div>
+</nav>
+</header>
+
+<!-- Mobile Slide Menu -->
+<div class="mobile-menu" id="mobileMenu">
+  <button class="mobile-close" id="mobileClose" aria-label="Close mobile menu">✖</button>
+  <ul>
+    <li><a href="index.html">Home</a></li>
+    <li><a href="about.html">About</a></li>
+    <li><a href="services.html">Services</a></li>
+    <li><a href="careers.html">Careers</a></li>
+    <li><a href="contact.html">Contact</a></li>
+  </ul>
+</div>
+
+<div class="menu-overlay" id="menuOverlay"></div>
+
+<!-- HERO SLIDER -->
+<section class="hero">
+  <video class="hero-video active" autoplay muted loop playsinline>
+    <source src="./vidoes/video 1.mp4" type="video/mp4">
+  </video>
+
+  <video class="hero-video" autoplay muted loop playsinline>
+    <source src="./vidoes/video 2.mp4" type="video/mp4">
+  </video>
+
+  <div class="hero-content">
+    <h1>You can't spell HERO without HR</h1>
+    <p>Dhriti... creating Hero's to Organisations</p>
+    <p style="font-size:18px; margin-top:15px;">A Human Capital Company</p>
+    <a href="contact.html" class="btn">Get in Touch</a>
+  </div>
+
+
+</section>
+
+<section class="section reveal">
+  <div class="section-title">
+    <h2>RIGHT TIME.. RIGHT PLACE.. RIGHT PERSON.. is our MOTTO</h2>
+  </div>
+
+  <div class="motto-grid">
+    <div class="motto-card">
+      <h3>1. Right Person</h3>
+      <p>The answer is to know for which position, whom to recruit and where they fit in the organisation. Start with the right place to get it right. The identification and development of competencies is key to improving overall performance and personal development.</p>
+      <p><strong>This helps organisational growth individually and collectively as well, creating TEAM (Together Everyone Achieves More) Work.</strong></p>
+    </div>
+
+    <div class="motto-card">
+      <h3>2. Right Place</h3>
+      <p>Plan the key deliverables of each role, define the responsibilities and how they will interlink and support other positions to drive the business results you need.</p>
+      <p><strong>Proper role definition ensures clarity, accountability, and seamless coordination across teams.</strong></p>
+    </div>
+
+    <div class="motto-card">
+      <h3>3. Right Time</h3>
+      <p>It's not just about the right person in the right place. You also have to get the timing right and have the support networks there to help your employees and organisational success.</p>
+      <p><strong>Right timing ensures smooth transitions, better onboarding, and sustained employee performance.</strong></p>
+    </div>
+  </div>
+</section>
+
+<section class="section reveal" style="background:#f8f9fa; padding:60px 20px; border-radius:20px; margin:80px auto;">
+  <div class="section-title">
+    <h2>We Make HR Easy for Organisations</h2>
+    <p>Bridging the gap between external consultants and on-site managers</p>
+  </div>
+
+  <div class="hr-services-grid">
+    <div class="hr-service-box">
+      <div class="service-icon">📋</div>
+      <h4>HR Essentials</h4>
+      <p>Getting the basics right: payrolls, defining C2Cs, employee terms and conditions, employment contracts, and statutory compliance.</p>
+    </div>
+
+    <div class="hr-service-box">
+      <div class="service-icon">💡</div>
+      <h4>HR Advice</h4>
+      <p>Navigate queries, tricky situations, performance concerns, workplace investigations, and grievances with expert guidance.</p>
+    </div>
+
+    <div class="hr-service-box">
+      <div class="service-icon">🎯</div>
+      <h4>HR Projects</h4>
+      <p>From policies to organisational reviews and restructures. We handle all strategic HR initiatives for your business.</p>
+    </div>
+
+    <div class="hr-service-box">
+      <div class="service-icon">🚀</div>
+      <h4>HR Development</h4>
+      <p>Training and coaching to help you and your business grow, develop culture, and maximize performance.</p>
+    </div>
+  </div>
+</section>
+
+<section class="section reveal">
+  <div class="section-title">
+    <h2>Our Focus Areas</h2>
+  </div>
+
+  <div class="focus-grid">
+    <div class="focus-item">Recruitment & Talent Acquisition</div>
+    <div class="focus-item">Induction & Onboarding</div>
+    <div class="focus-item">Work Culture Development</div>
+    <div class="focus-item">Absenteeism Management</div>
+    <div class="focus-item">Employee Performance Optimization</div>
+    <div class="focus-item">HR Finance Management</div>
+    <div class="focus-item">Cost Control & Efficiency</div>
+    <div class="focus-item">Overtime Management</div>
+    <div class="focus-item">Employee Welfare Programs</div>
+    <div class="focus-item">Health & Wellness</div>
+    <div class="focus-item">Payroll & Statutory Compliance</div>
+    <div class="focus-item">Work Culture Excellence</div>
+  </div>
+</section>
+
+<section class="section reveal">
+  <div class="section-title">
+    <h2>Who We Serve</h2>
+  </div>
+
+  <div class="clients-served">
+    <p>Dhriti HR Solutions offers HR support services and business consulting to help <strong> Government Organisations</strong> grow while focusing on deliverables.</p>
+    <p>Many small businesses don't need a dedicated HR manager. We are on hand to give you the advice you need when you need it, within your budget.</p>
+    <p><strong>With a decade of Human Resources Expertise, we love helping businesses recruit and retain the best people.</strong></p>
+  </div>
+</section>
+
+<section class="section">
+  <div class="section-title">
+    <h2>Our Services</h2>
+    <p>Comprehensive HR solutions designed to support businesses and professionals</p>
+  </div>
+
+  <div class="services">
+    <div class="service-card stagger" onclick="showServiceContent(this, 'We connect organizations with top talent efficiently. Specializing in permanent & contract hiring solutions. Screening, interviews, and onboarding handled professionally. Ensuring every hire fits company culture and business goals.')">
+      <img src="./images/Recruitment-process.jpg">
+      <h3>Recruitment</h3>
+    </div>
+
+    <div class="service-card stagger" onclick="showServiceContent(this, 'Providing skilled manpower for temporary and project needs. Flexible staffing solutions to meet dynamic business demands. Screened and qualified candidates ready to join immediately. We help maintain productivity without delays or hiring risks.')">
+      <img src="./images/staffing image.webp">
+      <h3>Staffing</h3>
+    </div>
+
+    <div class="service-card stagger" onclick="showServiceContent(this, 'Expert guidance on policies, compliance, and HR strategy. Helping organizations streamline workforce management. Tailored solutions for training, engagement, and growth. Advisory support to align HR with business objectives.')">
+      <img src="./images/HR-consultancy.jpg">
+      <h3>HR Consulting</h3>
+    </div>
+
+    <div class="service-card stagger" onclick="showServiceContent(this, 'Guidance and mentoring for job seekers to advance careers. Resume building, interview preparation, and skill assessment. Helping candidates find roles that match their strengths. Support to plan career growth and achieve long-term goals.')">
+      <img src="./images/career support.webp">
+      <h3>Career Support</h3>
+    </div>
+  </div>
+</section>
+
+<section class="why">
+  <div class="section-title">
+    <h2>Why Choose Dhriti HR Solutions?</h2>
+    <p>Your trusted partner for strategic, reliable, and people-focused HR services.</p>
+  </div>
+
+  <div class="why-grid">
+    <div class="why-box">
+      <h4>Industry-Specific Recruitment Expertise</h4>
+      <p>Deep understanding of diverse industries to identify and place the right talent effectively.</p>
+    </div>
+
+    <div class="why-box">
+      <h4>Verified & Genuine Opportunities</h4>
+      <p>We connect candidates with authentic, carefully screened career opportunities.</p>
+    </div>
+
+    <div class="why-box">
+      <h4>People-Centric Hiring Approach</h4>
+      <p>We focus on cultural fit, long-term growth, and sustainable workforce development.</p>
+    </div>
+
+    <div class="why-box">
+      <h4>End-to-End HR Solutions</h4>
+      <p>From recruitment to compliance and performance management, we provide complete HR support.</p>
+    </div>
+
+    <div class="why-box">
+      <h4>Transparent & Ethical Practices</h4>
+      <p>Integrity and professionalism guide every hiring and HR decision we make.</p>
+    </div>
+
+    <div class="why-box">
+      <h4>Commitment to Client Success</h4>
+      <p>We partner with organizations to drive productivity, growth, and long-term success.</p>
+    </div>
+  </div>
+</section>
+
+<section class="cta">
+  <h2>Together Everybody Achieves More</h2>
+  <p>Let us help you build the right team</p><br>
+  <a href="contact.html" class="btn">Contact Us</a>
+</section>
+
+<footer class="footer">
+  Copyright © 2026 Dhriti HR Solutions | 
+  Website Designed by 
+  <a href="developer.html" target="_blank">Sai Lohith Sahu</a>
+</footer>
+
+<script>
+// Mobile menu toggle
+const toggle = document.getElementById("menuToggle");
+const mobileMenu = document.getElementById("mobileMenu");
+const overlay = document.getElementById('menuOverlay');
+const mobileClose = document.getElementById('mobileClose');
+
+function openMenu(){
+  mobileMenu.classList.add('active');
+  if(overlay) overlay.classList.add('active');
+  toggle.textContent = '✖';
+  toggle.setAttribute('aria-label', 'Close mobile menu');
+}
+
+function closeMenu(){
+  mobileMenu.classList.remove('active');
+  if(overlay) overlay.classList.remove('active');
+  toggle.textContent = '☰';
+  toggle.setAttribute('aria-label', 'Open mobile menu');
+}
+
+toggle.onclick = () => { if(mobileMenu.classList.contains('active')) closeMenu(); else openMenu(); };
+mobileClose && mobileClose.addEventListener('click', closeMenu);
+overlay && overlay.addEventListener('click', closeMenu);
+mobileMenu && mobileMenu.addEventListener('click', (e) => { if(e.target === mobileMenu) closeMenu(); });
+
+// Close menu when clicking a nav link
+document.querySelectorAll('.mobile-menu a').forEach(link => {
+  link.addEventListener('click', closeMenu);
+});
+
+document.addEventListener('keydown', (e) => { if(e.key === 'Escape') closeMenu(); });
+
+// Hero video slider - rotate between videos every 8 seconds
+let videoSlides = document.querySelectorAll('.hero-video');
+let currentVideo = 0;
+
+function nextVideo(){
+  videoSlides[currentVideo].classList.remove('active');
+  currentVideo = (currentVideo + 1) % videoSlides.length;
+  videoSlides[currentVideo].classList.add('active');
+}
+
+setInterval(nextVideo, 8000);
+
+// Services content toggle
+function showServiceContent(card, content) {
+  const existing = card.querySelector('.service-content');
+
+  // If content already exists inside clicked card -> remove it
+  if(existing){
+    existing.remove();
+    return;
+  }
+
+  // Remove all other service contents
+  document.querySelectorAll('.service-content').forEach(c => c.remove());
+
+  // Create new content box
+  const div = document.createElement('div');
+  div.className = 'service-content';
+  div.innerHTML = content.split('. ').map(s => '<p>' + s.trim() + '.</p>').join('');
+
+  // Append inside clicked card
+  card.appendChild(div);
+}
+
+// Hide service content if clicked outside
+document.addEventListener('click', function(e){
+  const cards = document.querySelectorAll('.service-card');
+  let clickedInsideCard = false;
+
+  cards.forEach(card => {
+    if(card.contains(e.target)){
+      clickedInsideCard = true;
+    }
+  });
+
+  if(!clickedInsideCard){
+    document.querySelectorAll('.service-content').forEach(c => c.remove());
+  }
+});
+
+// touch+click feedback for interactive cards (service, hr service, motto)
+const interactiveCards = document.querySelectorAll('.service-card, .hr-service-box, .motto-card');
+interactiveCards.forEach(card => {
+  // touch feedback
+  card.addEventListener('touchstart', () => {
+    card.classList.add('touched');
+  });
+  card.addEventListener('touchend', () => {
+    setTimeout(() => card.classList.remove('touched'), 100);
+  });
+  card.addEventListener('touchcancel', () => {
+    card.classList.remove('touched');
+  });
+
+  // click feedback for desktop
+  card.addEventListener('mousedown', () => {
+    card.classList.add('clicked');
+  });
+  card.addEventListener('mouseup', () => {
+    setTimeout(() => card.classList.remove('clicked'), 100);
+  });
+  card.addEventListener('mouseleave', () => {
+    card.classList.remove('clicked');
+  });
+});
+
+// Reveal-on-scroll for elements with .reveal
+const revealElements = document.querySelectorAll('.reveal');
+
+function revealOnScroll() {
+  revealElements.forEach(el => {
+    const windowHeight = window.innerHeight;
+    const elementTop = el.getBoundingClientRect().top;
+
+    if (elementTop < windowHeight - 100) {
+      el.classList.add('active');
+    }
+  });
+}
+
+window.addEventListener('scroll', revealOnScroll);
+revealOnScroll();
+
+// Staggered animation for items with .stagger
+const staggerItems = document.querySelectorAll('.stagger');
+
+window.addEventListener('scroll', () => {
+  staggerItems.forEach((item, index) => {
+    const top = item.getBoundingClientRect().top;
+    if (top < window.innerHeight - 100) {
+      setTimeout(() => {
+        item.classList.add('active');
+      }, index * 150);
+    }
+  });
+});
+</script>
+
+<a class="whatsapp" href="https://wa.me/919866711002" target="_blank">💬</a>
+
+</body>
+</html>

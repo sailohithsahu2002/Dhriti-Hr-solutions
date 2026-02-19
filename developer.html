@@ -1,0 +1,367 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Sai Lohith Sahu | Full Stack Developer</title>
+
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
+
+<style>
+*{margin:0;padding:0;box-sizing:border-box;font-family:'Poppins',sans-serif;}
+
+body{
+  /* animated gradient background */
+  background: linear-gradient(-45deg, #0f172a, #1e293b, #334155, #0f172a);
+  background-size: 400% 400%;
+  animation: bgAnimation 15s ease infinite;
+  color:#fff;
+  display:flex;
+  flex-direction:column;
+  justify-content:center;
+  align-items:center;
+  min-height:100vh;
+}
+
+.container{
+  width:95%;
+  max-width:950px;
+  background:rgba(255,255,255,0.05);
+  backdrop-filter:blur(15px);
+  padding:50px;
+  border-radius:20px;
+  box-shadow:0 25px 60px rgba(0,0,0,0.6);
+  text-align:center;
+  animation:fadeIn 1s ease-in-out;
+}
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+  .container {
+    padding: 30px;
+  }
+  .hero {
+    margin-bottom: 30px;
+  }
+  .profile-img {
+    width: 140px;
+    height: 140px;
+    margin-bottom: 20px;
+  }
+  h1 {
+    font-size: 28px;
+  }
+  .hero h1 {
+    font-size: 32px;
+  }
+  .typing-text {
+    font-size: 20px;
+    border-right: 2px solid #38bdf8;
+  }
+  .bio {
+    font-size: 15px;
+  }
+  .skill-name {
+    font-size: 14px;
+  }
+  .btn {
+    padding: 10px 20px;
+    font-size: 14px;
+  }
+}
+
+@media (max-width: 480px) {
+  .container {
+    padding: 20px;
+  }
+  .hero {
+    margin-bottom: 25px;
+  }
+  .profile-img {
+    width: 120px;
+    height: 120px;
+  }
+  h1 {
+    font-size: 24px;
+  }
+  .hero h1 {
+    font-size: 28px;
+  }
+  .typing-text {
+    font-size: 18px;
+  }
+  .bio {
+    font-size: 14px;
+  }
+  .btn {
+    padding: 8px 16px;
+    font-size: 13px;
+  }
+}
+
+@keyframes fadeIn{
+  from{opacity:0;transform:translateY(40px);}
+  to{opacity:1;transform:translateY(0);}
+}
+
+@keyframes bgAnimation {
+  0%{background-position:0% 50%;}
+  50%{background-position:100% 50%;}
+  100%{background-position:0% 50%;}
+}
+
+.profile-img{
+  width:180px;
+  height:180px;
+  border-radius:50%;
+  object-fit:cover;
+  border:5px solid #00bcd4;
+  box-shadow:0 0 25px rgba(0,188,212,0.7);
+  margin-bottom:25px;
+}
+
+h1{font-size:32px;margin-bottom:8px;}
+
+.typing{
+  font-size:18px;
+  color:#00bcd4;
+  height:28px;
+  margin-bottom:25px;
+}
+
+.hero {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    margin-bottom: 40px;
+    width: 100%;
+}
+
+/* animation trigger by adding .animate; runs continuously */
+.hero.animate {
+    animation: fadeIn 1s ease-in-out infinite;
+}
+
+/* ensure typing text doesn't wrap and stays centered */
+.typing-text {
+    max-width: 100%;
+    box-sizing: border-box;
+}
+
+.hero h1 {
+    font-size: 40px;
+    margin-bottom: 10px;
+}
+
+.typing-text {
+    font-size: 26px;
+    font-weight: 500;
+    color: #38bdf8;
+    border-right: 3px solid #38bdf8;
+    white-space: nowrap;
+    overflow: hidden;
+}
+
+.bio{
+  font-size:16px;
+  line-height:1.8;
+  color:#e2e8f0;
+  margin-bottom:40px;
+  text-align:justify;
+  max-width:800px;
+  margin-left:auto;
+  margin-right:auto;
+}
+
+/* Skills */
+.skill{margin:20px 0;text-align:left;}
+.skill-name{margin-bottom:5px;font-weight:600;}
+.progress{width:100%;background:#1e293b;border-radius:20px;overflow:hidden;}
+.progress-bar{
+  height:10px;
+  background:#00bcd4;
+  border-radius:20px;
+  animation:load 2s forwards;
+}
+@keyframes load{from{width:0;}}
+
+/* Buttons */
+.btn{
+  display:inline-block;
+  padding:12px 25px;
+  margin:10px;
+  border-radius:30px;
+  text-decoration:none;
+  font-weight:600;
+  transition:0.3s;
+}
+
+.contact-btn{
+  background:#00bcd4;
+  color:#000;
+}
+.contact-btn:hover{background:#fff;}
+
+.social-btn{
+  border:2px solid #00bcd4;
+  color:#00bcd4;
+}
+.social-btn:hover{
+  background:#00bcd4;
+  color:#000;
+}
+
+.hire-btn{
+  background:#22c55e;
+  color:#000;
+}
+.hire-btn:hover{background:#16a34a;}
+
+/* ===== PROFESSIONAL FOOTER ===== */
+.footer{
+  background:#0f172a;
+  padding:18px;
+  text-align:center;
+  color:#cbd5e1;
+  font-size:14px;
+  font-family:'Poppins',sans-serif;
+}
+.footer a{
+  color:#00bcd4;
+  font-weight:600;
+  text-decoration:none;
+  transition:0.3s;
+}
+.footer a:hover{
+  color:#fff;
+  text-shadow:0 0 10px #00bcd4;
+}
+</style>
+</head>
+
+<body>
+
+<div class="container">
+  <div class="hero">
+      <h1>Hi, I'm Sai Lohith Sahu 👋</h1>
+      <div class="typing-text" id="typing"></div>
+  </div>
+
+  <!-- YOUR PHOTO -->
+  <img src="./images/sai-lohith.jpg" alt="Sai Lohith Sahu" class="profile-img">
+
+  <h2>Sai Lohith Sahu</h2>
+
+  <p class="bio">
+I'm Sai Lohith Sahu, a web developer crafting modern, responsive sites with clean architecture and performance in mind. I build user-centered platforms that reflect a brand's vision and scale smoothly, all while maintaining precision and passion.
+  </p>
+
+  <!-- Skills -->
+  <div class="skill">
+    <div class="skill-name">Python Full Stack</div>
+    <div class="progress">
+      <div class="progress-bar" style="width:90%;"></div>
+    </div>
+  </div>
+
+  <div class="skill">
+    <div class="skill-name">HTML / CSS</div>
+    <div class="progress">
+      <div class="progress-bar" style="width:95%;"></div>
+    </div>
+  </div>
+
+  <div class="skill">
+    <div class="skill-name">JavaScript</div>
+    <div class="progress">
+      <div class="progress-bar" style="width:85%;"></div>
+    </div>
+  </div>
+
+  <div class="skill">
+    <div class="skill-name">AWS</div>
+    <div class="progress">
+      <div class="progress-bar" style="width:75%;"></div>
+    </div>
+  </div>
+
+  <!-- Buttons -->
+  <a href="tel:7735941720" class="btn contact-btn">📞 7735941720</a>
+  <a href="tel:9182213541" class="btn contact-btn">📞 9182213541</a>
+
+  <a href="https://www.linkedin.com/in/sai-lohith-sahu-12131b282" target="_blank" class="btn social-btn">
+    🔗 LinkedIn
+  </a>
+
+  <a href="https://github.com/sailohithsahu2002" target="_blank" class="btn social-btn">
+    💻 GitHub
+  </a>
+
+  <a href="mailto:sailohithsahu@gmail.com" class="btn hire-btn">
+    💼 Hire Me
+  </a>
+
+</div>
+
+</div> <!-- end container -->
+
+<!-- Typing Animation -->
+<script>
+const texts = [
+    "Full Stack Developer",
+    "Frontend Developer",
+    "Building Modern Web Experiences",
+    "Passionate About Clean Code"
+];
+
+let count = 0;
+let index = 0;
+let currentText = '';
+let letter = '';
+
+function startTyping() {
+    clearInterval(window.typingInterval);
+    clearTimeout(window.typingPause);
+    index = 0;
+
+    function typeStep() {
+        if (count === texts.length) count = 0;
+        currentText = texts[count];
+        letter = currentText.slice(0, ++index);
+        document.getElementById('typing').textContent = letter;
+
+        if (letter.length === currentText.length) {
+            clearInterval(window.typingInterval);
+            window.typingPause = setTimeout(() => {
+                index = 0;
+                count++;
+                startTyping();
+            }, 1500);
+        }
+    }
+
+    typeStep(); // start immediately
+    window.typingInterval = setInterval(typeStep, 100);
+}
+
+// initial animation and typing
+startTyping();
+triggerHeroAnimation();
+
+// restart animations on click anywhere without resetting count
+function restartAll() {
+    triggerHeroAnimation();
+    index = 0; // restart current line
+}
+document.addEventListener('click', restartAll);
+</script>
+
+<footer class="footer">
+  Copyright © 2026 Dhriti HR Solutions | 
+  Website Designed by 
+  <a href="developer.html" target="_blank">Sai Lohith Sahu</a>
+</footer>
+
+</body>
+</html>
