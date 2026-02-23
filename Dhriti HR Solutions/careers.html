@@ -5,6 +5,9 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Careers - Dhriti HR Solutions</title>
 
+  <!-- Font Awesome for icons -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+
 <style>
 :root{
   --primary:#0f4c75;
@@ -12,6 +15,16 @@
   --dark:#1e1e1e;
   --light:#f4f7fb;
 }
+
+/* responsive typography and simple animations */
+h1{font-size:clamp(2rem,5vw,3rem);}
+h2{font-size:clamp(1.75rem,4vw,2.5rem);}
+h3{font-size:clamp(1.5rem,3vw,2rem);}
+p, li, a, span{font-size:clamp(0.9rem,2.5vw,1.1rem);}
+
+@keyframes fadeIn { from{opacity:0; transform:translateY(20px);} to{opacity:1; transform:translateY(0);} }
+.fade-in{opacity:0; animation:fadeIn 0.8s ease forwards;}
+.section{animation:fadeIn 0.8s ease forwards;}
 
 *{
   margin:0;
@@ -199,7 +212,7 @@ header{
 .page-header{
   background:
     linear-gradient(rgba(0,0,0,0.5),rgba(0,0,0,0.5)),
-    url("/Dhriti HR Solutions/images/aboutbackgroundimage.jpg")
+    url("images/aboutbackgroundimage.jpg")
     center center/cover no-repeat;
   background-attachment: fixed;
   color:#fff;
@@ -343,6 +356,57 @@ header{
   transform:translateY(-8px);
   box-shadow:0 18px 40px rgba(0,0,0,0.12);
 }
+
+/* additional card content styling */
+.card-icon{
+  font-size:40px;
+  color:var(--accent);
+  margin-bottom:20px;
+}
+
+.card-tagline{
+  font-style:italic;
+  color:#0077cc;
+  margin-bottom:20px;
+  font-size:16px;
+}
+
+.card-intro{
+  font-size:15px;
+  color:#666;
+  margin:12px 0 16px;
+  line-height:1.5;
+}
+
+.card-list li i{
+  color:#0077cc;
+  margin-right:8px;
+}
+
+.card-list{
+  list-style:disc inside;
+  text-align:left;
+  margin:0;
+  padding-left:20px;
+}
+
+.card-list li{
+  margin-bottom:6px;
+  opacity:0;
+  transform:translateY(20px);
+}
+
+.card-list li.active{
+  animation: fadeUpText 0.8s ease forwards;
+}
+
+.card-list li:nth-child(1).active{animation-delay:0.4s;}
+.card-list li:nth-child(2).active{animation-delay:0.5s;}
+.card-list li:nth-child(3).active{animation-delay:0.6s;}
+.card-list li:nth-child(4).active{animation-delay:0.7s;}
+.card-list li:nth-child(5).active{animation-delay:0.8s;}
+.card-list li:nth-child(6).active{animation-delay:0.9s;}
+.card-list li:nth-child(7).active{animation-delay:1s;}
 
 /* ================= CTA ================= */
 .career-overlay{
@@ -621,6 +685,22 @@ footer{
   .card p{
     font-size:14px;
   }
+  .card-intro{
+    font-size:14px;
+  }
+  .card-list{
+    padding-left:16px;
+  }
+  .card-list li{
+    font-size:13px;
+    margin-bottom:4px;
+  }
+  .card-icon{
+    font-size:32px;
+  }
+  .card-tagline{
+    font-size:15px;
+  }
 
   .career-overlay{
     padding:50px 20px;
@@ -700,9 +780,9 @@ footer{
 <header>
   <nav class="navbar">
     <div class="logo">
-      <a href="/Dhriti HR Solutions/index.html">
+      <a href="/index.html">
         <div class="logo-header">
-          <img src="/Dhriti HR Solutions/images/Dhriti logo.jpeg" alt="Dhriti HR Logo">
+          <img src="/images/Dhriti logo.jpeg" alt="Dhriti HR Logo">
           <div class="logo-text">
             <span>Dhriti HR Solutions</span>
             <span class="tagline"><span class="initial T">T</span>ogether <span class="initial E">E</span>verybody <span class="initial A">A</span>chieves <span class="initial M">M</span>ore Spirit</span>
@@ -712,11 +792,11 @@ footer{
     </div>
 
   <ul class="nav-links">
-    <li><a href="/Dhriti HR Solutions/index.html">Home</a></li>
-    <li><a href="/Dhriti HR Solutions/about.html">About</a></li>
-    <li><a href="/Dhriti HR Solutions/services.html">Services</a></li>
-    <li><a href="/Dhriti HR Solutions/careers.html">Careers</a></li>
-    <li><a href="/Dhriti HR Solutions/contact.html">Contact</a></li>
+    <li><a href="/index.html">Home</a></li>
+    <li><a href="/about.html">About</a></li>
+    <li><a href="/services.html">Services</a></li>
+    <li><a href="/careers.html">Careers</a></li>
+    <li><a href="/contact.html">Contact</a></li>
   </ul>
 
   <div class="menu-toggle" id="menuToggle">☰</div>
@@ -743,23 +823,58 @@ footer{
 
 <section class="section">
 <h2>Build Your Career With Us</h2>
-<p>We cultivate talent, encourage innovation, and create meaningful career paths.</p>
+<p>
+  Dhriti HR Solutions, we believe that people are the true foundation of innovation and success. We are committed to building a workplace where talent meets opportunity, ideas turn into impact, and ambition transforms into achievement. Our culture is driven by excellence, integrity, collaboration, and continuous growth.
+We don't just offer jobs we create meaningful career paths where professionals can enhance their skills, contribute to real-world projects, and grow alongside industry leaders. If you are passionate, driven, and ready to make a difference, Dhriti HR Solutions is the place where your future begins.</p>
 
 <div class="cards">
-<div class="card reveal hover-lift">
-<h3>Learning & Development</h3>
-<p>Continuous skill enhancement programs.</p>
-</div>
+  <div class="card reveal hover-lift">
+    <i class="fas fa-graduation-cap card-icon"></i>
+    <h3>Learning &amp; Development</h3>
+    <p class="card-tagline">Cultivating Excellence Through Continuous Advancement.</p>
+    <p class="card-intro">We believe continuous learning is the foundation of long-term success. Our organization encourages skill enhancement, knowledge sharing, and professional development at every stage of your career.</p>
+    <ul class="card-list">
+      <li class="reveal"><i class="fas fa-check-circle"></i>Continuous skill development programs</li>
+      <li class="reveal"><i class="fas fa-check-circle"></i>Hands-on training with real-time projects</li>
+      <li class="reveal"><i class="fas fa-check-circle"></i>Access to modern tools and technologies</li>
+      <li class="reveal"><i class="fas fa-check-circle"></i>Mentorship from experienced professionals</li>
+      <li class="reveal"><i class="fas fa-check-circle"></i>Technical and soft skills enhancement</li>
+      <li class="reveal"><i class="fas fa-check-circle"></i>Performance-based learning roadmap</li>
+      <li class="reveal"><i class="fas fa-check-circle"></i>Support for certifications and career advancement</li>
+    </ul>
+  </div>
 
-<div class="card reveal hover-lift">
-<h3>Collaborative Culture</h3>
-<p>A workplace built on trust and shared success.</p>
-</div>
+  <div class="card reveal hover-lift">
+    <i class="fas fa-people-group card-icon"></i>
+    <h3>Collaborative Culture</h3>
+    <p class="card-tagline">Where Collaboration Drives Innovation.</p>
+    <p class="card-intro">Our strength lies in teamwork. We foster a collaborative and inclusive work environment where ideas are valued and innovation thrives.</p>
+    <ul class="card-list">
+      <li class="reveal"><i class="fas fa-check-circle"></i>Open and transparent communication</li>
+      <li class="reveal"><i class="fas fa-check-circle"></i>Team-oriented work environment</li>
+      <li class="reveal"><i class="fas fa-check-circle"></i>Cross-functional collaboration</li>
+      <li class="reveal"><i class="fas fa-check-circle"></i>Respect for diverse perspectives</li>
+      <li class="reveal"><i class="fas fa-check-circle"></i>Knowledge sharing across departments</li>
+      <li class="reveal"><i class="fas fa-check-circle"></i>Supportive leadership approach</li>
+      <li class="reveal"><i class="fas fa-check-circle"></i>Positive and professional workplace culture</li>
+    </ul>
+  </div>
 
-<div class="card reveal hover-lift">
-<h3>Growth Opportunities</h3>
-<p>Clear advancement paths and leadership development.</p>
-</div>
+  <div class="card reveal hover-lift">
+    <i class="fas fa-chart-line card-icon"></i>
+    <h3>Growth Opportunities</h3>
+    <p class="card-tagline">Accelerating Careers with Purpose and Vision.</p>
+    <p class="card-intro">We provide clear career paths and growth opportunities to help individuals reach their full potential within the organization.</p>
+    <ul class="card-list">
+      <li class="reveal"><i class="fas fa-check-circle"></i>Clear career progression structure</li>
+      <li class="reveal"><i class="fas fa-check-circle"></i>Performance-based promotions</li>
+      <li class="reveal"><i class="fas fa-check-circle"></i>Leadership development opportunities</li>
+      <li class="reveal"><i class="fas fa-check-circle"></i>Exposure to challenging projects</li>
+      <li class="reveal"><i class="fas fa-check-circle"></i>Recognition and reward programs</li>
+      <li class="reveal"><i class="fas fa-check-circle"></i>Opportunities to take ownership of initiatives</li>
+      <li class="reveal"><i class="fas fa-check-circle"></i>Long-term career stability and advancement</li>
+    </ul>
+  </div>
 </div>
 </section>
 
@@ -778,7 +893,7 @@ footer{
 <footer class="footer">
   Copyright © 2026 Dhriti HR Solutions | 
   Website Designed by 
-  <a href="/Dhriti HR Solutions/developer.html" target="_blank">Sai Lohith Sahu</a>
+  <a href="developer.html" target="_blank">Sai Lohith Sahu</a>
 </footer>
 
 <script>

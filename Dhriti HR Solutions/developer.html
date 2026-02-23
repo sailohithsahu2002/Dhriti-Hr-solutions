@@ -23,6 +23,16 @@ body{
   min-height:100vh;
 }
 
+/* responsive typography and simple animations */
+h1{font-size:clamp(2rem,5vw,3rem);}
+h2{font-size:clamp(1.75rem,4vw,2.5rem);}
+h3{font-size:clamp(1.5rem,3vw,2rem);}
+p, li, a, span{font-size:clamp(0.9rem,2.5vw,1.1rem);}
+
+@keyframes fadeIn { from{opacity:0; transform:translateY(20px);} to{opacity:1; transform:translateY(0);} }
+.fade-in{opacity:0; animation:fadeIn 0.8s ease forwards;}
+.section{animation:fadeIn 0.8s ease forwards;}
+
 .container{
   width:95%;
   max-width:950px;
@@ -249,7 +259,7 @@ h1{font-size:32px;margin-bottom:8px;}
   </div>
 
   <!-- YOUR PHOTO -->
-  <img src="/Dhriti HR Solutions/images/sai-lohith.jpg" alt="Sai Lohith Sahu" class="profile-img">
+  <img src="/images/sai-lohith.jpg" alt="Sai Lohith Sahu" class="profile-img">
 
   <h2>Sai Lohith Sahu</h2>
 
@@ -360,7 +370,7 @@ document.addEventListener('click', restartAll);
 <footer class="footer">
   Copyright © 2026 Dhriti HR Solutions | 
   Website Designed by 
-  <a href="/Dhriti HR Solutions/developer.html" target="_blank">Sai Lohith Sahu</a>
+  <a href="developer.html" target="_blank">Sai Lohith Sahu</a>
 </footer>
 
 </body>
