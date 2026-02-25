@@ -58,12 +58,8 @@ p, li, a, span{font-size:clamp(0.9rem,2.5vw,1.1rem);}
     height: 140px;
     margin-bottom: 20px;
   }
-  h1 {
-    font-size: 28px;
-  }
-  .hero h1 {
-    font-size: 32px;
-  }
+  /* h1 size governed by global clamp rule for consistency */
+  /* .hero h1 similarly follows the clamp value */
   .typing-text {
     font-size: 20px;
     border-right: 2px solid #38bdf8;
@@ -91,12 +87,7 @@ p, li, a, span{font-size:clamp(0.9rem,2.5vw,1.1rem);}
     width: 120px;
     height: 120px;
   }
-  h1 {
-    font-size: 24px;
-  }
-  .hero h1 {
-    font-size: 28px;
-  }
+  /* keep heading sizes consistent with global clamp; no fixed values here */
   .typing-text {
     font-size: 18px;
   }
@@ -130,7 +121,7 @@ p, li, a, span{font-size:clamp(0.9rem,2.5vw,1.1rem);}
   margin-bottom:25px;
 }
 
-h1{font-size:32px;margin-bottom:8px;}
+h1{margin-bottom:8px;}
 
 .typing{
   font-size:18px;
@@ -160,7 +151,6 @@ h1{font-size:32px;margin-bottom:8px;}
 }
 
 .hero h1 {
-    font-size: 40px;
     margin-bottom: 10px;
 }
 
@@ -195,6 +185,31 @@ h1{font-size:32px;margin-bottom:8px;}
   animation:load 2s forwards;
 }
 @keyframes load{from{width:0;}}
+
+/* unified responsive typography overrides */
+html { font-size: 100%; }
+body { font-size: clamp(0.9rem,2.5vw,1.1rem); }
+
+/* header & navigation */
+.logo a { font-size: clamp(1.25rem,3vw,1.4rem) !important; }
+.logo-text > span:first-child,
+.logo-header > span { font-size: clamp(1.125rem,3vw,1.3rem) !important; }
+.logo .tagline { font-size: clamp(0.75rem,2vw,0.9rem) !important; }
+.nav-links a,
+.mobile-menu a,
+.btn { font-size: clamp(0.9rem,2.5vw,1.1rem) !important; }
+.menu-toggle,
+.mobile-close { font-size: clamp(1.75rem,4vw,2.5rem) !important; }
+.header-cert,
+.header-cert .cert-badge { font-size: clamp(0.75rem,2vw,0.9rem) !important; }
+
+/* section headings & smaller text */
+.card h2,
+.section h2 { font-size: clamp(1.5rem,4vw,2rem) !important; }
+.info-box a { font-size: clamp(0.9rem,2.5vw,1.1rem) !important; }
+.info-box span,
+.form-resume input[type="file"],
+.form-resume .form-note { font-size: clamp(0.75rem,2vw,0.9rem) !important; }
 
 /* Buttons */
 .btn{

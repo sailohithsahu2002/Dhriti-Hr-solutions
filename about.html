@@ -276,14 +276,14 @@ header{
 }
 
 .hero h1{
-  font-size:44px;
+  font-size:clamp(2rem,5vw,3rem);
   margin-bottom:10px;
   opacity:0;
   animation: textFadeUp 1.2s ease forwards 0.4s;
 }
 
 .hero p{
-  font-size:18px;
+  font-size:clamp(0.9rem,2.5vw,1.1rem);
   opacity:0.95;
   animation: textFadeUp 1.2s ease forwards 0.6s;
 }
@@ -305,7 +305,7 @@ header{
 }
 
 .hero h1{
-  font-size:44px;
+  font-size:clamp(2rem,5vw,3rem);
   margin-bottom:10px;
 }
 
@@ -410,11 +410,25 @@ header{
   border-top:5px solid #00bcd4;
   transition:all 0.3s ease;
   transform-origin:center center;
+  cursor:pointer;
+  -webkit-tap-highlight-color: transparent; /* disable blue overlay on touch */
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
 }
 
 .category-card:hover{
   transform:translateY(-6px);
   box-shadow:0 12px 32px rgba(0,188,212,0.15);
+}
+
+.category-card:focus{
+  outline:none;
+}
+
+.category-card:active{
+  transform:translateY(-6px) scale(0.98);
 }
 
 /* generic interactive animation */
@@ -1312,13 +1326,13 @@ footer{
   }
 
   .hero h1{
-    font-size:28px;
+    font-size:clamp(2rem,5vw,3rem);
     line-height:1.2;
     margin-bottom:12px;
   }
   
   .hero p{
-    font-size:16px;
+    font-size:clamp(0.9rem,2.5vw,1.1rem);
     line-height:1.4;
   }
 
@@ -1329,7 +1343,7 @@ footer{
   }
   
   .split h2{
-    font-size:24px;
+    font-size:clamp(1.75rem,4vw,2.5rem);
     margin-bottom:15px;
   }
   
@@ -1543,7 +1557,7 @@ footer{
 </section>
 
 <section class="section" style="background:#f8f9fa; padding:60px 20px; border-radius:20px; margin:80px auto;">
-  <h2 class="section-title" style="text-align:center; font-size:32px; color:#0f4c75; margin-bottom:50px; display:block;">Our Service Categories</h2>
+  <h2 class="section-title" style="text-align:center; font-size:clamp(1.75rem,4vw,2.5rem); color:#0f4c75; margin-bottom:50px; display:block;">Our Service Categories</h2>
 
   <div class="service-categories">
     <div class="category-card">
@@ -1569,7 +1583,7 @@ footer{
 </section>
 
 <section class="section">
-  <h2 class="section-title" style="text-align:center; font-size:32px; color:#0f4c75; margin-bottom:40px; display:block;">Our Areas of Focus</h2>
+  <h2 class="section-title" style="text-align:center; font-size:clamp(1.75rem,4vw,2.5rem); color:#0f4c75; margin-bottom:40px; display:block;">Our Areas of Focus</h2>
 
   <div class="focus-areas">
     <div class="focus-area">Recruitment & Talent Acquisition</div>
@@ -1761,6 +1775,13 @@ interactiveElements.forEach(el => {
   });
   el.addEventListener('touchend', () => {});
   el.addEventListener('touchcancel', () => el.classList.remove('touched'));
+});
+
+// remove focus from cards when clicking outside (mobile/backdrop tidy)
+document.addEventListener('click', function(e){
+  if(!e.target.closest('.category-card')){
+    document.querySelectorAll('.category-card').forEach(c => c.blur && c.blur());
+  }
 });
 </script>
 

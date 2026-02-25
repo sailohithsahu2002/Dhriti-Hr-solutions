@@ -242,7 +242,7 @@ header{
 }
 
 .services-hero h1 {
-  font-size: 48px;
+  font-size: clamp(2rem,5vw,3rem);
   opacity: 0;
   transform: translateY(40px);
   animation: fadeUpHero 1.2s ease forwards 0.3s;
@@ -281,7 +281,7 @@ header{
 }
 
 .page-header h1{
-  font-size:60px;
+  font-size:clamp(2rem,5vw,3rem);
   font-weight:700;
   margin:0;
   padding:0;
@@ -299,7 +299,7 @@ header{
 }
 
 .section h2{
-  font-size:32px;
+  font-size:clamp(1.75rem,4vw,2.5rem);
   color:#0f4c75;
   margin-bottom:40px;
   text-align:center;
@@ -857,7 +857,7 @@ footer{
   .logo .tagline{font-size:10px;}
   
   .page-header h1{
-    font-size: 28px;
+    font-size: clamp(2rem,5vw,3rem);
     font-weight: 700;
     text-shadow: 2px 2px 10px rgba(0,0,0,0.5);
   }
@@ -874,7 +874,7 @@ footer{
   }
   
   .services-hero h1{
-    font-size: 28px;
+    font-size: clamp(2rem,5vw,3rem);
     font-weight: 700;
     max-width: 95%;
     margin: 0 auto;
@@ -899,7 +899,7 @@ footer{
   }
   
   .section h2 {
-    font-size: 24px;
+    font-size: clamp(1.75rem,4vw,2.5rem);
     margin-bottom: 25px;
   }
   
@@ -1073,6 +1073,32 @@ footer{
   color:#fff;
   text-shadow:0 0 10% #00bcd4;
 }
+
+/* unified responsive typography overrides */
+html { font-size: 100%; }
+body { font-size: clamp(0.9rem,2.5vw,1.1rem); }
+
+/* header & navigation */
+.logo a { font-size: clamp(1.25rem,3vw,1.4rem) !important; }
+.logo-text > span:first-child,
+.logo-header > span { font-size: clamp(1.125rem,3vw,1.3rem) !important; }
+.logo .tagline { font-size: clamp(0.75rem,2vw,0.9rem) !important; }
+.nav-links a,
+.mobile-menu a,
+.btn,
+form button { font-size: clamp(0.9rem,2.5vw,1.1rem) !important; }
+.menu-toggle,
+.mobile-close { font-size: clamp(1.75rem,4vw,2.5rem) !important; }
+.header-cert,
+.header-cert .cert-badge { font-size: clamp(0.75rem,2vw,0.9rem) !important; }
+
+/* section headings & smaller text */
+.card h2,
+.section h2 { font-size: clamp(1.5rem,4vw,2rem) !important; }
+.info-box a { font-size: clamp(0.9rem,2.5vw,1.1rem) !important; }
+.info-box span,
+.form-resume input[type="file"],
+.form-resume .form-note { font-size: clamp(0.75rem,2vw,0.9rem) !important; }
 </style>
 </head>
 <body>

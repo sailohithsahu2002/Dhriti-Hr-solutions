@@ -221,13 +221,13 @@ header{
 }
 
 .page-header h1{
-  font-size:42px;
+  font-size:clamp(2rem,5vw,3rem);
   margin-bottom:10px;
   font-weight:700;
 }
 
 .page-header p{
-  font-size:18px;
+  font-size:clamp(0.9rem,2.5vw,1.1rem);
   max-width:650px;
   margin:auto;
   opacity:0.95;
@@ -896,8 +896,8 @@ form button:active::before{
   }
 
   .page-header{padding:80px 20px;}
-  .page-header h1{font-size:32px; line-height:1.2;}
-  .page-header p{font-size:16px;}
+  .page-header h1{font-size:clamp(2rem,5vw,3rem); line-height:1.2;}
+  .page-header p{font-size:clamp(0.9rem,2.5vw,1.1rem);}
   
   .contact-wrapper{margin:-30px auto 50px; padding:0 15px;}
   
